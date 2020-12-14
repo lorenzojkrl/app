@@ -5,7 +5,8 @@ export default function Label({
 
 }) {
     return <Text style={{
-        fontSize: 16,
+        fontSize: 18,
+        fontWeight: '500',
         textTransform: 'capitalize'
     }}>
         {label}
