@@ -10,7 +10,7 @@ export default function Auth() {
     return (
         <Stack.Navigator
             screenOptions={{ headerShown: false }}
-            initialRouteName="Greeting"
+            initialRouteName="Login"
         >
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="SignUp" component={SignUp} />

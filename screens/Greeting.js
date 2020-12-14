@@ -4,6 +4,7 @@ import Title from '../components/Title'
 import Label from '../components/Label'
 import Input from '../components/Input'
 import Header from '../components/Header'
+import Button from '../components/Button'
 
 
 export default function Login() {
@@ -21,8 +22,10 @@ export default function Login() {
 
                 </View>
 
-                {/* bottone accedi */}
+                <Button name={'LOGIN'} />
+
             </View>
+
         </View>
 
     )
@@ -31,6 +34,7 @@ export default function Login() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+
 
     },
     header: {
@@ -51,7 +55,7 @@ const styles = StyleSheet.create({
     },
     text: {
         fontSize: 15,
-        lineHeight:25,
+        lineHeight: 25,
         fontWeight: '500',
         textAlign: 'center'
     }

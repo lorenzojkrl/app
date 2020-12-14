@@ -4,7 +4,9 @@ import { TouchableOpacity, Text } from 'react-native'
 export default function Button(props) {
 
     const textStyle = {
-        textAlign: 'center'
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color: 'white',
     }
 
     const btnStyle = {
@@ -14,7 +16,7 @@ export default function Button(props) {
         borderWidth: 3,
         borderRadius: 50,
         padding: 10,
-        marginVertical: 15,
+        marginVertical: 20,
 
     }
 
