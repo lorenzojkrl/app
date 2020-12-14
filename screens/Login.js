@@ -21,6 +21,7 @@ export default function Login() {
                 <Text>Non sei iscritto? Registrati!</Text>
             </View>
         </>
+        
     )
 }
 
