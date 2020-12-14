@@ -15,8 +15,8 @@ export default function Header({ children }) {
             <Text
                 style={{
                     color: 'white',
-                    fontSize: 35,
-                    fontWeight: '900',
+                    fontSize: 30,
+                    fontWeight: 'bold',
                 }}>{children}</Text>
 
         </View>
