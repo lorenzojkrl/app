@@ -4,6 +4,7 @@ import Title from '../components/Title'
 import Label from '../components/Label'
 import Input from '../components/Input'
 import Header from '../components/Header'
+import Button from '../components/Button'
 
 
 export default function Login() {
@@ -16,12 +17,13 @@ export default function Login() {
                 <Input />
                 <Label label={'Password'} />
                 <Input isPassword={true} />
-                {/* bottone accedi */}
+                {/* <Button name={'Accedi'}> Accedi </Button> */}
+                <Button name={'ACCEDI'} />
                 <Text>Hai dimenticato la password?</Text>
                 <Text>Non sei iscritto? Registrati!</Text>
             </View>
         </>
-        
+
     )
 }
 

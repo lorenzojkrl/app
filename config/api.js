@@ -1,3 +1,4 @@
 export default {
-    url:"https://tree-rn-server.herokuapp.com"
+    url: "https://tree-rn-server.herokuapp.com",
+    logged: true
 }
