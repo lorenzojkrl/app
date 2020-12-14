@@ -1,19 +1,18 @@
 import React from "react";
-import {
-    Text,
-    View,
-    TextInput,
-    StyleSheet
-} from 'react-native'
-export default function Input(){
-    const [value, setValue] = useState("")
+import { TextInput } from 'react-native'
+export default function Input({
+    value,
+    setValue,
+    type, //'default', 'email-address', 'numeric', 'phone-pad', 'ascii-capable', 'numbers-and-punctuation', 'url', 'number-pad', 'name-phone-pad', 'decimal-pad', 'twitter', 'web-search', 'visible-password'
+    placeholder,
+}){
 
     return (
-        <View style={styles.textArea}>
-
             <TextInput
                 onChangeText={text => setValue(text)}
-                value={value} />
-        </View>
+                value={value} 
+                keyboardType={type}
+                placeholder={placeholder}
+            />
     )
 }
