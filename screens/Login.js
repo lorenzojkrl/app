@@ -5,6 +5,7 @@ import Label from '../components/Label'
 import Input from '../components/Input'
 import Header from '../components/Header'
 import Button from '../components/Button'
+import Spacer from '../components/Spacer'
 
 
 export default function Login() {
@@ -12,6 +13,7 @@ export default function Login() {
         <>
             <View style={styles.loginSpace}>
                 <Header><Text>Nome App</Text></Header>
+                <Spacer size={30}/>
                 <Title title={'Accedi'}></Title>
                 <Label label={'Nome utente / Email'} />
                 <Input />
