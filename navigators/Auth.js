@@ -8,8 +8,8 @@ const Stack = createStackNavigator()
 export default function Auth() {
     return (
         <Stack.Navigator
-            screenOptions={{ headerShown: false }} 
-            initialRouteName="Login"
+            screenOptions={{ headerShown: false }}
+            initialRouteName="SignUp"
         >
             <Stack.Screen name="Login" component={Login} />
             <Stack.Screen name="SignUp" component={SignUp} />

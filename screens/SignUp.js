@@ -1,31 +1,46 @@
-import React from "react";
-import { View, StyleSheet, Text } from 'react-native'
+import React, { useState } from "react";
+import { View, StyleSheet, Text, ScrollView } from 'react-native'
+import CheckBox from '@react-native-community/checkbox';
 import Title from '../components/Title'
 import Label from '../components/Label'
+import Input from '../components/Input'
+import Header from '../components/Header'
+import Row from '../components/Row'
 
 export default function SignUp() {
+    const [toggleCheckBox, setToggleCheckBox] = useState(false)
     return (
-        <View style={styles.loginSpace}>
-            <Title title={'Registrati'}></Title>
-            <Label label={'Email'} />
-            {/* input nome utente */}
-            <Label label={'Nome Utente'} />
-            {/* input nome utente */}
-            <Label label={'Password'} />
-            {/* input password */}
-            <Label label={'Ripeti Password'} />
-            {/* input password */}
-            {/* T&C */}
-            {/* bottone accedi */}
-            <Text>Hai dimenticato la password?</Text>
-            <Text>Non sei iscritto? Registrati!</Text>
-        </View>
+        <ScrollView>
+            <View style={styles.loginSpace}>
+                <Header><Text>Nome App</Text></Header>
+                <Title title={'Registrati'}></Title>
+                <Label label={'Email'} type="email-address" />
+                <Input />
+                <Label label={'Nome Utente'} />
+                <Input />
+                <Label label={'Password'} />
+                <Input isPassword={true} />
+                <Label label={'Ripeti Password'} />
+                <Input isPassword={true} />
+                {/* T&C */}
+                {/* bottone accedi */}
+                <Row>
+                    <CheckBox
+                        disabled={false}
+                        value={toggleCheckBox}
+                        onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                    />
+                    <Text>Ho letto e accetto la normativa della Privacy</Text>
+                </Row>
+
+            </View>
+        </ScrollView>
+
     )
 }
 
 const styles = StyleSheet.create({
     main: {
-        flex: 1,
         backgroundColor: "#eaeaea"
     },
     loginSpace: {
