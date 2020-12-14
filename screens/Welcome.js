@@ -1,18 +1,21 @@
 import React from "react";
 import { StyleSheet, Text, View } from 'react-native';
 import Row from "../components/Row.js";
+import Title from '../components/Title'
+import Login from './Login'
 
 export default function Welcome() {
     return (
         <View style={styles.welcomeMain}>
-            <View style={styles.login}>
-                <Text>ACCEDI</Text>
-                <Text>Tunztunz</Text>
-            </View>
-            <Row justify="space-between">
+            <Login />
+            {/* <View style={styles.loginSpace}>
+                <Title title={'MammaTua!'}></Title>
+            </View> */}
+            {/* <Row justify="space-between"></Row> */}
+            {/* <View style={styles.login}>
                 <Text>Benvenuto</Text>
                 <Text>Tunztunz</Text>
-            </Row>
+            </View> */}
         </View>
     )
 }
@@ -23,8 +26,5 @@ const styles = StyleSheet.create({
         padding: 24,
         backgroundColor: "#eaeaea"
     },
-    login: {
-        flex: 1,
-        alignItems: 'center',
-    }
+
 })
