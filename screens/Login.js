@@ -1,6 +1,7 @@
 import React from "react";
 import { View, StyleSheet, Text } from 'react-native'
 import Title from '../components/Title'
+import Label from '../components/Label'
 
 
 export default function Login() {
@@ -8,9 +9,9 @@ export default function Login() {
         <>
             <View style={styles.loginSpace}>
                 <Title title={'Accedi'}></Title>
-                {/* label nome utente */}
+                <Label label={'Nome utente / Email'} />
                 {/* input nome utente */}
-                {/* label password */}
+                <Label label={'Password'} />
                 {/* input password */}
                 {/* bottone accedi */}
                 <Text>Hai dimenticato la password?</Text>
