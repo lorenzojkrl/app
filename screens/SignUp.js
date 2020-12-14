@@ -23,7 +23,6 @@ export default function SignUp() {
                 <Input isPassword={true} />
                 <Label label={'Ripeti Password'} />
                 <Input isPassword={true} />
-                <Button name={'ACCEDI'} />
                 <Row>
                     <CheckBox
                         disabled={false}
@@ -32,6 +31,8 @@ export default function SignUp() {
                     />
                     <Text>Ho letto e accetto la normativa della Privacy</Text>
                 </Row>
+                <Button name={'ISCRIVITI'} />
+
 
             </View>
         </ScrollView>
