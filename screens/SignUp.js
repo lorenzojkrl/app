@@ -6,6 +6,7 @@ import Label from '../components/Label'
 import Input from '../components/Input'
 import Header from '../components/Header'
 import Row from '../components/Row'
+import Button from '../components/Button'
 
 export default function SignUp() {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
@@ -22,8 +23,7 @@ export default function SignUp() {
                 <Input isPassword={true} />
                 <Label label={'Ripeti Password'} />
                 <Input isPassword={true} />
-                {/* T&C */}
-                {/* bottone accedi */}
+                <Button name={'ACCEDI'} />
                 <Row>
                     <CheckBox
                         disabled={false}
