@@ -21,6 +21,10 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
+    main: {
+        flex: 1,
+        backgroundColor: "#eaeaea"
+    },
     loginSpace: {
         flex: 1,
         alignItems: 'center',

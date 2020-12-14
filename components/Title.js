@@ -9,7 +9,6 @@ const Title = ({ title }) => {
 
 const styles = StyleSheet.create({
     titleStyle: {
-        flex: 1,
         color: 'black',
         fontSize: 24,
         textTransform: 'uppercase'
