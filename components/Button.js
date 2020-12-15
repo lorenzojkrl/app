@@ -22,7 +22,7 @@ export default function Button(props) {
 
 
     return (
-        <TouchableOpacity style={btnStyle}>
+        <TouchableOpacity style={btnStyle} onPress={props.submitLogin}>
             <Text style={textStyle}>
                 {props.name}
             </Text>
