@@ -21,7 +21,7 @@ export default function Button(props) {
 
     }
     return (
-        <TouchableOpacity style={btnStyle}>
+        <TouchableOpacity style={btnStyle} onPress={props.submit}>
             <Text style={textStyle}>
                 {props.name}
             </Text>

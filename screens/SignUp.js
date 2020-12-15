@@ -7,6 +7,7 @@ import Input from '../components/Input'
 import Header from '../components/Header'
 import Row from '../components/Row'
 import Button from '../components/Button'
+import Spacer from '../components/Spacer'
 
 export default function SignUp() {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
@@ -14,6 +15,7 @@ export default function SignUp() {
         <ScrollView>
             <View style={styles.loginSpace}>
                 <Header><Text>Nome App</Text></Header>
+                <Spacer size={30} />
                 <Title title={'Registrati'}></Title>
                 <Label label={'Email'} type="email-address" />
                 <Input />
@@ -32,8 +34,6 @@ export default function SignUp() {
                     <Text>Ho letto e accetto la normativa della Privacy</Text>
                 </Row>
                 <Button name={'ISCRIVITI'} />
-
-
             </View>
         </ScrollView>
 
