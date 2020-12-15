@@ -30,8 +30,9 @@ export default function Login({ navigation }) {
     const { manageUserData } = useContext(AuthContext)
     const [error, setError] = useState(false)
     const [messageOpen, setMessageOpen] = useState(false)
-    console.log(api)
+
     const submitLogin = async () => {
+        console.log('api')
 
         // try {
         //     setLoading(true)
