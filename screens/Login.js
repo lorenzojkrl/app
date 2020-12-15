@@ -65,7 +65,7 @@ export default function Login({ navigation }) {
                 <Button
                     disabled={loading || !formData.valid}
                     name={'ACCEDI'}
-                    submitLogin={submitLogin}
+                    submit={submitLogin}
                 />
 
                 <Text>Hai dimenticato la password?</Text>

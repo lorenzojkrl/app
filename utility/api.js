@@ -8,6 +8,8 @@ export function setToken(token) {
 
 class Api {
     async get(url) {
+        console.log(`${ApiConf.baseUrl}/${url}`)
+
         return (await fetch(`${ApiConf.baseUrl}/${url}`, {
             headers: {
                 Authorization: authToken,
