@@ -2,6 +2,7 @@ import React from "react";
 import { View, StyleSheet, Text } from 'react-native'
 import Title from '../components/Title'
 import Label from '../components/Label'
+import Button from '../components/Button'
 
 
 export default function Login() {
@@ -14,6 +15,7 @@ export default function Login() {
                 <Label label={'Password'} />
                 {/* input password */}
                 {/* bottone accedi */}
+                <Button>Accedi</Button>
                 <Text>Hai dimenticato la password?</Text>
                 <Text>Non sei iscritto? Registrati!</Text>
             </View>

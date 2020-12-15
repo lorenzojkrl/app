@@ -3,7 +3,7 @@ import { Pressable, Text } from 'react-native'
 import colors from '../config/colors'
 
 
-export default function Button({ title, ...props }) {
+export default function Button(title, { ...props }) {
 
     const cleanedProps = Object.assign({}, props, {
         style: [{
