@@ -7,6 +7,7 @@ import Spacer from '../components/Spacer'
 import Button from '../components/Button'
 
 import { AuthContext } from '../context/AuthContext'
+import { rootNavigation } from '../utility/navigation.js'
 import api from '../utility/api'
 
 import useForm from '../hooks/useForm'
@@ -32,27 +33,25 @@ export default function Login({ navigation }) {
     const [messageOpen, setMessageOpen] = useState(false)
 
     const submitLogin = async () => {
-        console.log('api')
+        try {
+            setLoading(true)
+            const response = await api.post('authentication/login-action', formData.values)
+            const { result, errors, payload } = response
+            if (result) {
+                manageUserData(payload)
+                rootNavigation.current.navigate('Main')
+            } else {
+                setError(errors[0].message)
+                setMessageOpen(true)
+            }
+        } catch (err) {
+            console.warn(err)
+            setError(err)
+            setMessageOpen(true)
 
-        // try {
-        //     setLoading(true)
-        //     const response = await api.post('authentication/login-action', formData.values)
-        //     const { result, errors, payload } = response
-        //     if (result) {
-        //         manageUserData(payload)
-        //         rootNavigation.current.navigate('Main')
-        //     } else {
-        //         setError(errors[0].message)
-        //         setMessageOpen(true)
-        //     }
-        // } catch (err) {
-        //     console.warn(err)
-        //     setError(err)
-        //     setMessageOpen(true)
-
-        // } finally {
-        //     setLoading(false)
-        // }
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (

@@ -16,6 +16,7 @@ class Api {
     }
 
     async post(url, params = {}) {
+        console.log(`${ApiConf.baseUrl}/${url}`)
         return (await fetch(`${ApiConf.baseUrl}/${url}`, {
             headers: {
                 'Content-Type': 'application/json',

@@ -1,24 +1,18 @@
 import React from "react";
-import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import Auth from "../navigators/Auth.js";
-import Main from "../navigators/Main.js";
+import AppNavigator from '../navigators/AppNavigator'
+import { rootNavigation } from '../utility/navigation.js'
+import useLoader from "../hooks/useLoader.js"
 
-const Stack = createStackNavigator();
-
-export default function Screens(props) {
+export default function Screens() {
+    const loading = useLoader();
     return (
-        <>
-            <NavigationContainer>
-                <Stack.Navigator
-                    screenOptions={{ headerShown: false }}
-                    initialRouteName="Auth"
-                >
-                    <Stack.Screen name="Auth" component={Auth} />
-                    <Stack.Screen name="Main" component={Main} />
-                </Stack.Navigator>
+        loading
+            ? null
+            :
+            <NavigationContainer ref={rootNavigation}>
+                <AppNavigator />
             </NavigationContainer>
-        </>
     )
 }
 
