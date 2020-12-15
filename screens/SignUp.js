@@ -34,8 +34,6 @@ export default function SignUp() {
                     <Text>Ho letto e accetto la normativa della Privacy</Text>
                 </Row>
                 <Button name={'ISCRIVITI'} />
-
-
             </View>
         </ScrollView>
 

@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Auth from "../navigators/Auth.js";
 import Main from "../navigators/Main.js";
+
 const Stack = createStackNavigator();
 
 export default function Screens(props) {
