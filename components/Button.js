@@ -1,27 +1,30 @@
 import React from 'react'
-import { Pressable, Text } from 'react-native'
-import colors from '../config/colors'
+import { TouchableOpacity, Text } from 'react-native'
+
+export default function Button(props) {
 
 
-export default function Button(title, { ...props }) {
 
-    const cleanedProps = Object.assign({}, props, {
-        style: [{
+    const textStyle = {
+        fontWeight: 'bold',
+        textAlign: 'center',
+        color: 'white',
+    }
+    const btnStyle = {
+        width: '50%',
+        borderColor: 'orange',
+        backgroundColor: 'orange',
+        borderWidth: 3,
+        borderRadius: 50,
+        padding: 10,
+        marginVertical: 20,
 
-            backgroundColor: colors.yellow,
-            height: 15,
-            paddingHorizontal: 20,
-            borderRadius: 10,
-            justifyContent: 'center'
-
-        }, props.style]
-    })
-
+    }
     return (
-        <Pressable>
-            <Text style={{ color: colors.white, textAlign: 'center' }}>
-                {title}
+        <TouchableOpacity style={btnStyle}>
+            <Text style={textStyle}>
+                {props.name}
             </Text>
-        </Pressable>
+        </TouchableOpacity>
     )
 }

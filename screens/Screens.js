@@ -9,7 +9,10 @@ export default function Screens(props) {
     return (
         <>
             <NavigationContainer>
-                <Stack.Navigator initialRouteName="Auth">
+                <Stack.Navigator
+                    screenOptions={{ headerShown: false }}
+                    initialRouteName="Auth"
+                >
                     <Stack.Screen name="Auth" component={Auth} />
                     <Stack.Screen name="Main" component={Main} />
                 </Stack.Navigator>
@@ -17,3 +20,4 @@ export default function Screens(props) {
         </>
     )
 }
+

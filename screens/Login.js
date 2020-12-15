@@ -9,27 +9,26 @@ export default function Login() {
     return (
         <>
             <View style={styles.loginSpace}>
+                <Header><Text>Nome App</Text></Header>
                 <Title title={'Accedi'}></Title>
                 <Label label={'Nome utente / Email'} />
-                {/* input nome utente */}
+                <Input />
                 <Label label={'Password'} />
-                {/* input password */}
-                {/* bottone accedi */}
-                <Button>Accedi</Button>
+                <Input isPassword={true} />
+                {/* <Button name={'Accedi'}> Accedi </Button> */}
+                <Button name={'ACCEDI'} />
                 <Text>Hai dimenticato la password?</Text>
                 <Text>Non sei iscritto? Registrati!</Text>
             </View>
         </>
+
     )
 }
 
 const styles = StyleSheet.create({
-    main: {
-        flex: 1,
-        backgroundColor: "#eaeaea"
-    },
     loginSpace: {
         flex: 1,
         alignItems: 'center',
+        justifyContent: 'center',
     }
 })

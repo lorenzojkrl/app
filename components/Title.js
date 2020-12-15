@@ -11,7 +11,9 @@ const styles = StyleSheet.create({
     titleStyle: {
         color: 'black',
         fontSize: 24,
-        textTransform: 'uppercase'
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+        marginBottom: 30,
     }
 })
 
