@@ -1,4 +1,4 @@
-import ApiConf from '../config/api'
+import ApiConf from '../config/apis'
 
 let authToken = ''
 

@@ -17,6 +17,12 @@ const inputs = [
     { label: 'Password', name: 'password', secureTextEntry: true },
 ]
 
+// Credentials
+// Lorenzo name: utente_26@mail.com
+// Alessandro name: utente_4@mail.com
+
+// password: Password1!
+
 export default function Login({ navigation }) {
     const requiredInputs = ['username_email', 'password']
     const [formData, setFormValue] = useForm(requiredInputs)
@@ -24,27 +30,28 @@ export default function Login({ navigation }) {
     const { manageUserData } = useContext(AuthContext)
     const [error, setError] = useState(false)
     const [messageOpen, setMessageOpen] = useState(false)
-
+    console.log(api)
     const submitLogin = async () => {
-        try {
-            setLoading(true)
-            const response = await api.post('authentication/login-action', formData.values)
-            const { result, errors, payload } = response
-            if (result) {
-                manageUserData(payload)
-                rootNavigation.current.navigate('Main')
-            } else {
-                setError(errors[0].message)
-                setMessageOpen(true)
-            }
-        } catch (err) {
-            console.warn(err)
-            setError(err)
-            setMessageOpen(true)
 
-        } finally {
-            setLoading(false)
-        }
+        // try {
+        //     setLoading(true)
+        //     const response = await api.post('authentication/login-action', formData.values)
+        //     const { result, errors, payload } = response
+        //     if (result) {
+        //         manageUserData(payload)
+        //         rootNavigation.current.navigate('Main')
+        //     } else {
+        //         setError(errors[0].message)
+        //         setMessageOpen(true)
+        //     }
+        // } catch (err) {
+        //     console.warn(err)
+        //     setError(err)
+        //     setMessageOpen(true)
+
+        // } finally {
+        //     setLoading(false)
+        // }
     }
 
     return (
