@@ -4,6 +4,7 @@ import Header from '../components/Header'
 import Spacer from '../components/Spacer'
 import Button from '../components/Button'
 import api from '../utility/api'
+import NavigationTab from '../components/NavigationTab'
 
 
 
@@ -40,6 +41,7 @@ export default function Main() {
                 name={'CARTE'}
                 submit={() => submitGet()}
             />
+            <NavigationTab />
 
 
 
