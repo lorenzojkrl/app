@@ -1,11 +1,13 @@
 import React, { useState, useContext } from "react";
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+
 import Title from '../components/Title'
-
-
 import Header from '../components/Header'
 import Spacer from '../components/Spacer'
+<<<<<<< HEAD
 import NavigationTab from '../components/NavigationTab'
+=======
+>>>>>>> f9066f61e4217238395ffa44694c2a3be838c576
 import Button from '../components/Button'
 
 import { AuthContext } from '../context/AuthContext'
@@ -25,6 +27,7 @@ const inputs = [
 // Alessandro name: utente_4@mail.com
 // Alfonso name: utente_7@mail.com
 
+
 // password: Password1!
 
 export default function Login({ navigation }) {
@@ -42,7 +45,7 @@ export default function Login({ navigation }) {
             const { result, errors, payload } = response
             if (result) {
                 manageUserData(payload)
-                rootNavigation.current.navigate('Main')
+                rootNavigation.current.navigate('NavigationTab')
             } else {
                 setError(errors[0].message)
                 setMessageOpen(true)
