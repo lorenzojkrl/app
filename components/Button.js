@@ -3,12 +3,13 @@ import { TouchableOpacity, Text } from 'react-native'
 
 export default function Button(props) {
 
+
+
     const textStyle = {
         fontWeight: 'bold',
         textAlign: 'center',
         color: 'white',
     }
-
     const btnStyle = {
         width: '50%',
         borderColor: 'orange',
@@ -19,8 +20,6 @@ export default function Button(props) {
         marginVertical: 20,
 
     }
-
-
     return (
         <TouchableOpacity style={btnStyle} onPress={props.submit}>
             <Text style={textStyle}>
@@ -29,4 +28,3 @@ export default function Button(props) {
         </TouchableOpacity>
     )
 }
-

@@ -4,7 +4,10 @@ import Header from '../components/Header'
 import Spacer from '../components/Spacer'
 import Button from '../components/Button'
 import api from '../utility/api'
-import { EvilIcons } from '@expo/vector-icons';
+import NavigationTab from '../components/NavigationTab'
+
+
+
 
 // usare createBottommTabNavigator: https://reactnavigation.org/docs/bottom-tab-navigator/
 export default function Main() {
@@ -41,6 +44,7 @@ export default function Main() {
                 name={'CARTE'}
                 submit={() => submitGet()}
             />
+            <NavigationTab />
 
 
 
