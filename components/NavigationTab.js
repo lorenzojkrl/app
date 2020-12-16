@@ -12,7 +12,7 @@ export default function NavigationTab() {
 
         <Tab.Navigator
             initialRouteName="Main"
-            style={styles.buttonBar} >
+            style={styles.bottomBar} >
 
             <Tab.Screen
                 name="Home"
@@ -66,7 +66,7 @@ export default function NavigationTab() {
 }
 
 const styles = StyleSheet.create({
-    buttonBar: {
+    bottomBar: {
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
