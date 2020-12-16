@@ -2,9 +2,7 @@ import React from 'react'
 import { TouchableOpacity, Text } from 'react-native'
 
 export default function Button(props) {
-
-
-
+    
     const textStyle = {
         fontWeight: 'bold',
         textAlign: 'center',
