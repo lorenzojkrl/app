@@ -4,6 +4,7 @@ import Title from '../components/Title'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import Paragraph from '../components/Paragraph'
+import NavigationTab from '../components/NavigationTab'
 
 
 export default function Greeting() {
@@ -18,6 +19,7 @@ export default function Greeting() {
                     Benvenuto nella nostra app. Prima di continuare controlla la tua mail e verifica l'indirizzo cliccando sul link che ti abbiamo inviato
                 </Paragraph>
                 <Button name={'LOGIN'} />
+                <NavigationTab />
             </View>
         </View>
     )

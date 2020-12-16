@@ -8,6 +8,7 @@ import Header from '../components/Header'
 import Row from '../components/Row'
 import Button from '../components/Button'
 import Spacer from '../components/Spacer'
+import NavigationTab from '../components/NavigationTab'
 
 export default function SignUp() {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
@@ -34,6 +35,7 @@ export default function SignUp() {
                     <Text>Ho letto e accetto la normativa della Privacy</Text>
                 </Row>
                 <Button name={'ISCRIVITI'} />
+                <NavigationTab/>
             </View>
         </ScrollView>
 

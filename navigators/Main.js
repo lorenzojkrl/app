@@ -37,14 +37,16 @@ export default function Main() {
             <Header>
                 <Text>Nome Main  </Text>
                 <Text>Nome</Text>
-                <EvilIcons name="user" size={36} color="black" style={{ backgroundColor: "yellow", borderRadius: 30, borderWidth: 2, overflow: "hidden" }} />
+
             </Header>
             <Spacer size={30} />
             <Button
                 name={'CARTE'}
                 submit={() => submitGet()}
             />
-            <NavigationTab />
+           
+                <NavigationTab />
+            
 
 
 

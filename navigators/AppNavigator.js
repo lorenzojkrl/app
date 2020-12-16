@@ -4,6 +4,7 @@ import Auth from "./Auth.js";
 import Main from "./Main.js";
 import { AuthContext } from '../context/AuthContext'
 
+
 const AppStack = createStackNavigator()
 
 export default function AppNavigator() {
@@ -12,9 +13,9 @@ export default function AppNavigator() {
 
     return (
         <AppStack.Navigator
-            initialRouteName={token ? "Main" : "Auth"}
+            //initialRouteName={token ? "Main" : "Auth"}
 
-            // initialRouteName={"Auth"}
+            initialRouteName={"Auth"}
             screenOptions={{
                 headerShown: false,
                 cardStyle: { paddingTop: 0 },

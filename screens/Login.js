@@ -5,7 +5,7 @@ import Title from '../components/Title'
 
 import Header from '../components/Header'
 import Spacer from '../components/Spacer'
-
+import NavigationTab from '../components/NavigationTab'
 import Button from '../components/Button'
 
 import { AuthContext } from '../context/AuthContext'
@@ -76,6 +76,9 @@ export default function Login({ navigation }) {
                 <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
                     <Text style={styles.registrationText}>Registrati!</Text>
                 </TouchableOpacity>
+                
+                    <NavigationTab/>
+                
             </View>
         </>
 

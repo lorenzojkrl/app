@@ -1,70 +1,26 @@
 import React from 'react'
-import { StyleSheet, Image } from 'react-native'
+import { StyleSheet } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabIcons from '../config/TabIcons'
-import Main from '../navigators/Main'
+
+import Greeting from '../screens/Greeting'
+import Login from '../screens/Login'
+import SignUp from '../screens/SignUp'
 
 const Tab = createBottomTabNavigator();
 
 export default function NavigationTab() {
 
     return (
+      
+            <Tab.Navigator initialRouteName="Home" style={styles.bottomBar} >
+                <Tab.Screen name="Home" component={Greeting} />
+                <Tab.Screen name="Cards" component={Login}  />
+                <Tab.Screen name="Profile" component={SignUp}  />
+            </Tab.Navigator>
+    );
 
-        <Tab.Navigator
-            initialRouteName="Main"
-            style={styles.bottomBar} >
-
-            <Tab.Screen
-                name="Home"
-                component={Main}
-                options={{
-                    tabBarLabel: 'Home',
-                    tabBarIcon: () => {
-                        return (
-                            <Image
-                                source={TabIcons.home}
-                                style={{ width: 26, height: 26 }}
-                            />
-                        );
-                    }
-                }} />
-
-            {/* 
-            <Tab.Screen
-                name="Cards"
-                component={}
-                options={{
-                    tabBarLabel: 'Le mie Carte',
-                    tabBarIcon: () => (
-                        return(
-                            <Image
-                                source={TabIcons.list}
-                                style = {{ width: 26, height: 26 }}
-                            />
-                        );
-                    ),
-                }}
-            />
-            <Tab.Screen
-                name="Profile"
-                component={}
-                options={{
-                    tabBarLabel: 'Profilo Utente',
-                    tabBarIcon: () => (
-                        return(
-                            <Image
-                                source={TabIcons.profile}
-                                style = {{ width: 26, height: 26 }}
-                            />
-                        );
-                    ),
-                }}
-            />
-            */}
-        </Tab.Navigator>
-    )
 }
-
 const styles = StyleSheet.create({
     bottomBar: {
         flex: 1,
@@ -72,3 +28,21 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     }
 })
+
+
+{/*
+<Tab.Screen
+                name="Profile"
+                component={SignUp}
+                options={{
+                    tabBarLabel: 'Il Mio Prifilo',
+                    tabBarIcon: () => {
+                        return (
+                            <Image
+                                source={TabIcons.profile}
+                                style={{ width: 26, height: 26 }}
+                            />
+                        );
+                    }
+                }} />
+*/}
