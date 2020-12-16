@@ -1,6 +1,7 @@
 import React from 'react'
 import { StyleSheet } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import TabIcons from '../config/TabIcons'
 
 import Greeting from '../screens/Greeting'
@@ -9,18 +10,55 @@ import SignUp from '../screens/SignUp'
 
 const Tab = createBottomTabNavigator();
 
-export default function NavigationTab() {
+    export default function NavigationTab() {
+    
+        return (
+          
+                <Tab.Navigator initialRouteName="Home" style={styles.bottomBar} >
+                    <Tab.Screen 
+                        name="Home" 
+                        component={Greeting}
+                        options={{
+                        tabBarLabel: 'Home',
+                        tabBarIcon: () => {
+                        return (
+                            <Image
+                                source={TabIcons.profile}
+                                style={{ width: 26, height: 26 }}
+                            />
+                        );
+                    }}} />
+                    <Tab.Screen 
+                        name="Cards" 
+                        component={Login}  
+                        options={{
+                        tabBarLabel: 'Le Mie Carte',
+                        tabBarIcon: () => {
+                        return (
+                            <Image
+                                source={TabIcons.profile}
+                                style={{ width: 26, height: 26 }}
+                            />
+                        );
+                    }}} />
+                    <Tab.Screen 
+                        name="Profile" 
+                        component={SignUp}  
+                        options={{
+                        tabBarLabel: 'Il Mio Prifilo',
+                        tabBarIcon: () => {
+                        return (
+                            <Image
+                                source={TabIcons.profile}
+                                style={{ width: 26, height: 26 }}
+                            />
+                        );
+                    }}} />
+                </Tab.Navigator>
+        );
+    
+    }
 
-    return (
-      
-            <Tab.Navigator initialRouteName="Home" style={styles.bottomBar} >
-                <Tab.Screen name="Home" component={Greeting} />
-                <Tab.Screen name="Cards" component={Login}  />
-                <Tab.Screen name="Profile" component={SignUp}  />
-            </Tab.Navigator>
-    );
-
-}
 const styles = StyleSheet.create({
     bottomBar: {
         flex: 1,
