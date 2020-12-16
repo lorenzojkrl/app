@@ -1,11 +1,9 @@
 import React, { useState, useContext } from "react";
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+
 import Title from '../components/Title'
-
-
 import Header from '../components/Header'
 import Spacer from '../components/Spacer'
-
 import Button from '../components/Button'
 
 import { AuthContext } from '../context/AuthContext'
@@ -24,6 +22,7 @@ const inputs = [
 // Lorenzo name: utente_26@mail.com
 // Alessandro name: utente_4@mail.com
 // Alfonso name: utente_7@mail.com
+
 
 // password: Password1!
 

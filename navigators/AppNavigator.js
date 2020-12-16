@@ -14,7 +14,7 @@ export default function AppNavigator() {
         <AppStack.Navigator
             initialRouteName={token ? "Main" : "Auth"}
 
-            // initialRouteName={"Auth"}
+            initialRouteName={"Auth"}
             screenOptions={{
                 headerShown: false,
                 cardStyle: { paddingTop: 0 },
