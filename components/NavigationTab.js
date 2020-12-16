@@ -34,7 +34,7 @@ export default function NavigationTab() {
 
             {/* 
             <Tab.Screen
-                name="Cards"
+                name="CardsScreen"
                 component={}
                 options={{
                     tabBarLabel: 'Le mie Carte',
