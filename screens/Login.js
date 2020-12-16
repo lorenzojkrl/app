@@ -57,27 +57,24 @@ export default function Login({ navigation }) {
     }
 
     return (
-        <>
-            <View style={styles.loginSpace}>
-                <Header><Text>Nome App</Text></Header>
-                <Spacer size={30} />
+        <View style={styles.loginSpace}>
+            <Header><Text>Nome App</Text></Header>
+            <Spacer size={30} />
 
-                <Title title={'Accedi'}></Title>
-                <Form inputs={inputs} updateInputValue={setFormValue} />
-                <Button
-                    disabled={loading || !formData.valid}
-                    name={'ACCEDI'}
-                    submit={submitLogin}
-                />
+            <Title title={'Accedi'}></Title>
+            <Form inputs={inputs} updateInputValue={setFormValue} />
+            <Button
+                disabled={loading || !formData.valid}
+                name={'ACCEDI'}
+                submit={submitLogin}
+            />
 
-                <Text>Hai dimenticato la password?</Text>
-                <Text>Non sei iscritto?</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
-                    <Text style={styles.registrationText}>Registrati!</Text>
-                </TouchableOpacity>
-            </View>
-        </>
-
+            <Text>Hai dimenticato la password?</Text>
+            <Text>Non sei iscritto?</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
+                <Text style={styles.registrationText}>Registrati!</Text>
+            </TouchableOpacity>
+        </View>
     )
 }
 
@@ -85,7 +82,7 @@ const styles = StyleSheet.create({
     loginSpace: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
     },
     registrationText: {
         textDecorationLine: 'underline',
