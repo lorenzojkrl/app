@@ -2,14 +2,12 @@ import React, { useState, useEffect, useContext } from "react"
 import { View, StyleSheet, Text } from 'react-native'
 
 import Title from '../components/Title'
-import Header from '../components/Header'
-import Spacer from '../components/Spacer'
 
-import Button from '../components/Button'
 import api from '../utility/api'
 import { EvilIcons } from '@expo/vector-icons';
 import { AuthContext } from '../context/AuthContext'
 
+import LoggedInHeader from '../components/LoggedInHeader'
 
 // usare createBottommTabNavigator: https://reactnavigation.org/docs/bottom-tab-navigator/
 export default function Main() {
@@ -51,12 +49,7 @@ export default function Main() {
 
     return (
         <View style={styles.mainContainer}>
-            <Header>
-                <Text>Nome Main  </Text>
-                <Text>{user.name}</Text>
-                <EvilIcons name="user" size={50} color="yellow" />
-            </Header>
-            <Spacer size={10} />
+            <LoggedInHeader user={user} />
 
             <Title title={'BENVEnuto'} />
             <Title title={`${user.name + ' ' + user.surname} `} />
@@ -73,10 +66,7 @@ export default function Main() {
                     <View style={styles.infoBoxText}><Text style={styles.infoBoxTextT}>Carte scambiate</Text></View>
                 </View>
             </View>
-            {/* <Button
-                name={'CARTE'}
-                submit={() => submitGet()}
-            /> */}
+
 
         </View>
     )
