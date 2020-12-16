@@ -2,32 +2,35 @@ import React from 'react'
 import { StyleSheet, Image } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import TabIcons from '../config/TabIcons'
-import Main from '../navigators/Main'
 
-const Tab = createBottomTabNavigator();
+
 
 export default function NavigationTab() {
 
+    const Tab = createBottomTabNavigator();
     return (
 
         <Tab.Navigator
             initialRouteName="Main"
-            style={styles.buttonBar} >
+        // style={styles.buttonBar} 
+        >
 
             <Tab.Screen
                 name="Home"
                 component={Main}
-                options={{
-                    tabBarLabel: 'Home',
-                    tabBarIcon: () => {
-                        return (
-                            <Image
-                                source={TabIcons.home}
-                                style={{ width: 26, height: 26 }}
-                            />
-                        );
-                    }
-                }} />
+            // options={{
+            //     tabBarLabel: 'Home',
+            // tabBarIcon: () => {
+            //     return (
+            //         <Image
+            //             source={TabIcons.home}
+            //             style={{ width: 26, height: 26 }}
+            //         />
+            //     );
+            // }
+            // }} 
+
+            />
 
             {/* 
             <Tab.Screen
@@ -65,10 +68,10 @@ export default function NavigationTab() {
     )
 }
 
-const styles = StyleSheet.create({
-    buttonBar: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    }
-})
+// const styles = StyleSheet.create({
+//     buttonBar: {
+//         flex: 1,
+//         justifyContent: 'center',
+//         alignItems: 'center',
+//     }
+// })
