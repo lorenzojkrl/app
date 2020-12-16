@@ -41,7 +41,7 @@ export default function Login({ navigation }) {
             const { result, errors, payload } = response
             if (result) {
                 manageUserData(payload)
-                rootNavigation.current.navigate('Main')
+                rootNavigation.current.navigate('NavigationTab')
             } else {
                 setError(errors[0].message)
                 setMessageOpen(true)

@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // paddingBottom: 20,
     width: 400,
-    backgroundColor: 'pink'
+    // backgroundColor: 'pink'
   },
   textInputStyle: {
     width: '70%',
