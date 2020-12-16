@@ -21,7 +21,6 @@ const inputs = [
 // Credentials
 // Lorenzo name: utente_26@mail.com
 // Alessandro name: utente_4@mail.com
-
 // password: Password1!
 
 export default function Login({ navigation }) {
