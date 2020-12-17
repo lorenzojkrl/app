@@ -46,7 +46,7 @@ export default function Alert({
                 name={"CHIUDI"}>                
             </Button>
         )}
-        }
+        
       </View>
     </Animated.View>
   )
