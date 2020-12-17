@@ -5,7 +5,7 @@ import Title from '../components/Title'
 import Button from '../components/Button'
 import { EvilIcons } from '@expo/vector-icons';
 
-const SuccessfulTransfer = ({ navigation, route }) => {
+const CardProfile = ({ navigation, route }) => {
     const { created_at, description, game, id, name, updatet_at, user_uuid } = route.params;
     return (
         <>
@@ -22,9 +22,10 @@ const SuccessfulTransfer = ({ navigation, route }) => {
                     <Text style={styles.description}>{description.slice(1, -1)}</Text>
                     <View style={styles.img}></View>
                     <Text>{console.log(name)}</Text>
-                    <View style={{ alignSelf: 'center' }}>
-                        <Button name={'TRASFERISCI'} ></Button>
-                    </View>
+                    <TouchableOpacity style={{ alignSelf: 'center' }}>
+
+                        <Button name={'TRASFERISCI'} submit={() => navigation.navigate('ExchangeScreen', route)}></Button>
+                    </TouchableOpacity>
 
                 </View>
 
@@ -34,7 +35,7 @@ const SuccessfulTransfer = ({ navigation, route }) => {
     );
 };
 
-export default SuccessfulTransfer;
+export default CardProfile;
 
 
 const styles = StyleSheet.create({

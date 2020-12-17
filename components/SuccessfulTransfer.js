@@ -3,7 +3,7 @@ import { Text } from 'react-native'
 
 const SuccessfulTransfer = () => {
     return (
-        <Text >Success</Text>
+        <Text >Succexxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxss</Text>
     );
 };
 
