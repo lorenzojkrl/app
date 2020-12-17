@@ -4,10 +4,6 @@ import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
 import Title from '../components/Title'
 import Header from '../components/Header'
 import Spacer from '../components/Spacer'
-<<<<<<< HEAD
-import NavigationTab from '../components/NavigationTab'
-=======
->>>>>>> f9066f61e4217238395ffa44694c2a3be838c576
 import Button from '../components/Button'
 
 import { AuthContext } from '../context/AuthContext'

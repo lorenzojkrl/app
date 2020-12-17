@@ -48,22 +48,8 @@ export default function Main() {
 
 
     return (
-<<<<<<< HEAD
-        <View >
-            <Header>
-                <Text>Nome Main  </Text>
-                <Text>Nome</Text>
 
-            </Header>
-            <Spacer size={30} />
-            <Button
-                name={'CARTE'}
-                submit={() => submitGet()}
-            />
-           
-                <NavigationTab />
-            
-=======
+
         <View style={styles.mainContainer}>
             <LoggedInHeader user={user} />
 
@@ -71,8 +57,6 @@ export default function Main() {
             <Title title={`${user.name + ' ' + user.surname} `} />
             < EvilIcons name="user" size={200} color="black" />
             <Title title={`${currentDate}`} />
->>>>>>> f9066f61e4217238395ffa44694c2a3be838c576
-
             <View style={styles.cardsSummaryContainer}>
                 <View style={styles.infoBox}>
                     <View style={styles.infoBoxNumber}><Text style={styles.infoBoxNumberT}>{cards.length !== [] ? cards.length : 0}</Text></View>

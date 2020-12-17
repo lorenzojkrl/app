@@ -6,9 +6,7 @@ import Header from '../components/Header'
 import Row from '../components/Row'
 import Button from '../components/Button'
 import Spacer from '../components/Spacer'
-<<<<<<< HEAD
-import NavigationTab from '../components/NavigationTab'
-=======
+
 import Form from '../components/Form'
 import useForm from '../hooks/useForm'
 
@@ -18,7 +16,7 @@ const inputs = [
     { label: 'Password', name: 'password', secureTextEntry: true },
     { label: 'Ripeti Password', name: 'ripeti_password', secureTextEntry: true },
 ]
->>>>>>> f9066f61e4217238395ffa44694c2a3be838c576
+
 
 export default function SignUp() {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
@@ -65,17 +63,12 @@ export default function SignUp() {
                     />
                     <Text>Ho letto e accetto la normativa della Privacy</Text>
                 </Row>
-<<<<<<< HEAD
-                <Button name={'ISCRIVITI'} />
-                <NavigationTab/>
-=======
                 <Button
                     name={'ISCRIVITI'}
                     disabled={loading || !formData.valid}
                     // disabled={true}
                     submit={submitSignup}
                 />
->>>>>>> f9066f61e4217238395ffa44694c2a3be838c576
             </View>
         </ScrollView>
 
