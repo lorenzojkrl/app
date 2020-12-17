@@ -1,12 +1,13 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, SafeAreaView, StatusBar, ActivityIndicator } from 'react-native';
-
+import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import { EvilIcons } from '@expo/vector-icons';
+// import { rootNavigation } from '../utility/navigation.js'
 
-const CardItem = (props) => {
-    const { description, game, id, name } = props.data;
+
+const CardItem = ({ data }) => {
+    const { description, game, id, name } = data;
     return (
-        <TouchableOpacity style={styles.card}>
+        <View style={styles.card}>
             <View style={styles.img}></View>
             <View style={styles.text}>
                 <Text>
@@ -19,7 +20,7 @@ const CardItem = (props) => {
             <View style={styles.btnContainer}>
                 <EvilIcons name="arrow-right" size={40} color="black" />
             </View>
-        </TouchableOpacity>
+        </View>
     )
 };
 

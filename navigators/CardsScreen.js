@@ -7,7 +7,7 @@ import api from '../utility/api'
 // import { EvilIcons } from '@expo/vector-icons';
 import CardItem from '../components/CardItem'
 
-const CardsScreen = () => {
+const CardsScreen = ({ navigation }) => {
   const { user } = useContext(AuthContext)
   const [cards, setCards] = useState([])
   const [error, setError] = useState(false)
@@ -47,12 +47,18 @@ const CardsScreen = () => {
     return (
       <SafeAreaView style={styles.container}>
         <LoggedInHeader user={user} />
+
         <View style={styles.main}>
           <Title title={`Le mie Carte`} />
           <FlatList
             data={cards}
             renderItem={({ item }) => (
-              <CardItem data={item} />
+              <TouchableOpacity
+                onPress={() => navigation.navigate('CardProfile', item)}
+              >
+                <CardItem data={item} />
+              </TouchableOpacity>
+
             )}
             keyExtractor={item => JSON.stringify(item.id)}
           />
