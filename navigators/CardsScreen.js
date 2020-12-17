@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Text, View, StyleSheet, FlatList, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native';
+import { Text, View, StyleSheet, FlatList, TouchableOpacity, SafeAreaView, StatusBar, ActivityIndicator } from 'react-native';
 import LoggedInHeader from '../components/LoggedInHeader'
 import { AuthContext } from '../context/AuthContext'
 import Title from '../components/Title'
@@ -62,22 +62,58 @@ const CardsScreen = () => {
     submitGet()
   }, []);
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.main}>
-        <LoggedInHeader user={user} />
-        <Title title={`Le mie Carte`} />
-        <FlatList
-          data={cards}
-          renderItem={renderItem}
-          keyExtractor={item => item.id}
-        />
-      </View>
-    </SafeAreaView>
-  );
+  if (cards < 1) {
+    return (
+      <ActivityIndicator size={150} color="red" />
+    )
+  } else {
+    return (
+      <SafeAreaView style={styles.container}>
+        <View style={styles.main}>
+          <LoggedInHeader user={user} />
+          <Title title={`Le mie Carte`} />
+          <FlatList
+            data={cards}
+            renderItem={({ item }) => (
+
+              <CardItem data={item} />)}
+            keyExtractor={item => item.id}
+          />
+        </View>
+      </SafeAreaView>
+    );
+  }
+
 };
 
 export default CardsScreen;
+
+
+function CardItem(props) {
+  const { description, game, id, name } = props.data;
+  return (
+    <TouchableOpacity style={styles.card}>
+
+      <View style={{
+        width: 100,
+        height: 100,
+        backgroundColor: 'black',
+      }}>
+
+      </View>
+      <View>
+        <Text>
+          {name}
+        </Text>
+        <Text>
+          {game}
+        </Text>
+      </View>
+
+
+    </TouchableOpacity>
+  )
+}
 
 const styles = StyleSheet.create({
   main: { flex: 1, justifyContent: 'flex-start', alignItems: 'center' },
@@ -94,6 +130,23 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
+  },
+  card: {
+
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'nowrap',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+
+    backgroundColor: '#484537',
+    minHeight: 85,
+    paddingRight: 30,
+    paddingLeft: 20,
+    paddingVertical: 20,
+    marginVertical: 5,
+
+    borderRadius: 2,
   },
 
 })
