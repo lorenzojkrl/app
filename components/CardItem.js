@@ -1,14 +1,24 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { EvilIcons } from '@expo/vector-icons';
 // import { rootNavigation } from '../utility/navigation.js'
 
-
 const CardItem = ({ data }) => {
     const { description, game, id, name } = data;
+
+    
     return (
         <View style={styles.card}>
-            <View style={styles.img}></View>
+            <View style={styles.img}>
+            <Image
+                    style={styles.logoGame}
+                    source={(game === "minecraft") 
+                            ? require('../assets/logo_minecraft.png') 
+                            : (game === "pokemon") 
+                            ? require('../assets/logo_pokemon.png') 
+                            : (game === "supermario") ? require('../assets/logo_supermario.jpeg') 
+                            : null} />
+            </View>
             <View style={styles.text}>
                 <Text>
                     Name: {name}
@@ -40,9 +50,9 @@ const styles = StyleSheet.create({
     img: {
         width: 100,
         height: 100,
-        backgroundColor: 'black',
-        // borderWidth: 1,
-        // borderColor: 'red',
+        borderColor: 'black' ,
+        borderRadius: 10,
+        borderWidth: 1,
     },
     text: {
         width: 200,
@@ -59,5 +69,23 @@ const styles = StyleSheet.create({
         // borderColor: 'red',
         justifyContent: 'center',
         alignItems: 'center'
-    }
+    },
+    logoGame:{
+		width: 95,
+        height: 95,
+        justifyContent: 'center',
+        alignItems: 'center'
+	}
 })
+
+/*
+<Image 
+                    style={{ 
+                        width: 95,
+                        height: 95,
+                        justifyContent: 'center',
+                        alignItems: 'center'}}
+                    source={{
+                       
+                    }}/>
+*/

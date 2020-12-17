@@ -2,7 +2,8 @@ import React, { useRef, useEffect } from 'react'
 import { Animated, StyleSheet, View, Text } from 'react-native'
 import Button from './Button'
 import colors from '../config/colors'
-import sizes from '../config/sizes'
+import spacer from '../config/spaces'
+
 
 export default function Alert({
   open,
@@ -52,13 +53,13 @@ export default function Alert({
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: sizes.containerSpace,
+    paddingHorizontal: spacer.containerSpace,
     width: '100%',
     position: 'absolute',
     top: 0,
     left: 0,
     zIndex: 1,
-    paddingHorizontal: sizes.containerSpace,
+    paddingHorizontal: spacer.containerSpace,
     paddingTop: 10
   },
   containerInternal: {

@@ -8,6 +8,7 @@ import { AuthContext } from '../context/AuthContext'
 import { EvilIcons } from '@expo/vector-icons';
 import Title from '../components/Title'
 import Button from '../components/Button'
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 
@@ -39,32 +40,34 @@ const CardsScreen = () => {
 
   }
   return (
-    <View style={styles.main}>
-      <LoggedInHeader user={user} />
-      <Title title={`${user.name + ' ' + user.surname} `} />
-      < EvilIcons name="user" size={150} color="black" />
-      <Text style={styles.paragraph}>Email: {user.email}</Text>
-      <Button
-        name={'GENERA CODICE'}
-        submit={generateCode}
-      />
-      {
-        code
-          ? <>
-            <Text style={styles.paragraph}>Codice: {code.portfolio_code}</Text>
-            <Title title={`Il tuo QR Code`} />
-            <View style={styles.qrCodeContainer}>
-              <QRCode
-                logo={require('../assets/Guybrush_Threepwood.png')}
-                logoSize={100}
-                content={code.portfolio_code}
-                size={240}
-              />
-            </View>
-          </>
-          : <Text></Text>
-      }
-    </View>
+    <ScrollView>
+      <View style={styles.main}>
+        <LoggedInHeader user={user} />
+        <Title title={`${user.name + ' ' + user.surname} `} />
+        < EvilIcons name="user" size={150} color="black" />
+        <Text style={styles.paragraph}>Email: {user.email}</Text>
+        <Button
+          name={'GENERA CODICE'}
+          submit={generateCode}
+        />
+        {
+          code
+            ? <>
+              <Text style={styles.paragraph}>Codice: {code.portfolio_code}</Text>
+              <Title title={`Il tuo QR Code`} />
+              <View style={styles.qrCodeContainer}>
+                <QRCode
+                  logo={require('../assets/Guybrush_Threepwood.png')}
+                  logoSize={70}
+                  content={code.portfolio_code}
+                  size={240}
+                />
+              </View>
+            </>
+            : <Text></Text>
+        }
+      </View>
+    </ScrollView>
   );
 };
 

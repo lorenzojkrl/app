@@ -1,10 +1,11 @@
 import React, { useState, useContext } from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from 'react-native'
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView } from 'react-native'
 
 import Title from '../components/Title'
 import Header from '../components/Header'
 import Spacer from '../components/Spacer'
 import Button from '../components/Button'
+import Alert from '../components/Alert'
 
 import { AuthContext } from '../context/AuthContext'
 import { rootNavigation } from '../utility/navigation.js'
@@ -57,45 +58,26 @@ export default function Login({ navigation }) {
     }
 
     return (
-        <View style={styles.loginSpace}>
-            <Header><Text>Nome App</Text></Header>
-            <Spacer size={30} />
-
-<<<<<<< HEAD
-                <Title title={'Accedi'}></Title>
-                <Form inputs={inputs} updateInputValue={setFormValue} />
-                <Button
-                    disabled={loading || !formData.valid}
-                    name={'ACCEDI'}
-                    submit={submitLogin}
-                />
-
-                <Text>Hai dimenticato la password?</Text>
-                <Text>Non sei iscritto?</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
-                    <Text style={styles.registrationText}>Registrati!</Text>
-                </TouchableOpacity>
-                
-                    <NavigationTab />
-                
-            </View>
+        <>
+            <ScrollView>
+                <View style={styles.loginSpace}>
+                    <Header><Text>Nome App</Text></Header>
+                    <Spacer size={30} />
+                    <Title title={'Accedi'}></Title>
+                    <Form inputs={inputs} updateInputValue={setFormValue} />
+                    <Button
+                        disabled={loading || !formData.valid}
+                        name={'ACCEDI'}
+                        submit={submitLogin}
+                    />
+                    <Text>Hai dimenticato la password?</Text>
+                    <Text>Non sei iscritto?</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
+                        <Text style={styles.registrationText}>Registrati!</Text>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
         </>
-=======
-            <Title title={'Accedi'}></Title>
-            <Form inputs={inputs} updateInputValue={setFormValue} />
-            <Button
-                disabled={loading || !formData.valid}
-                name={'ACCEDI'}
-                submit={submitLogin}
-            />
->>>>>>> ccd7748aa7d3fc91987630fdeb40c577e2af0e36
-
-            <Text>Hai dimenticato la password?</Text>
-            <Text>Non sei iscritto?</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
-                <Text style={styles.registrationText}>Registrati!</Text>
-            </TouchableOpacity>
-        </View>
     )
 }
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react"
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet, Text, ScrollView } from 'react-native'
 
 import Title from '../components/Title'
 
@@ -48,58 +48,35 @@ export default function Main() {
 
 
   return (
-    <View style={styles.mainContainer}>
-      <LoggedInHeader user={user} />
+    <ScrollView>
+      <View style={styles.mainContainer}>
+        <LoggedInHeader user={user} />
 
-      <Title title={'BENVEnuto'} />
-      <Title title={`${user.name + ' ' + user.surname} `} />
-      < EvilIcons name="user" size={200} color="black" />
-      <Title title={`${currentDate}`} />
+        <Title title={'BENVEnuto'} />
+        <Title title={`${user.name + ' ' + user.surname} `} />
+        < EvilIcons name="user" size={200} color="black" />
+        <Title title={`${currentDate}`} />
 
-<<<<<<< HEAD
-    return (
-
-
-        <View style={styles.mainContainer}>
-            <LoggedInHeader user={user} />
-
-            <Title title={'BENVEnuto'} />
-            <Title title={`${user.name + ' ' + user.surname} `} />
-            < EvilIcons name="user" size={200} color="black" />
-            <Title title={`${currentDate}`} />
-            <View style={styles.cardsSummaryContainer}>
-                <View style={styles.infoBox}>
-                    <View style={styles.infoBoxNumber}><Text style={styles.infoBoxNumberT}>{cards.length !== [] ? cards.length : 0}</Text></View>
-                    <View style={styles.infoBoxText}><Text style={styles.infoBoxTextT}>Carte in  lista</Text></View>
-                </View>
-                <View style={styles.infoBox}>
-                    <View style={styles.infoBoxNumber}><Text style={styles.infoBoxNumberT}>7</Text></View>
-                    <View style={styles.infoBoxText}><Text style={styles.infoBoxTextT}>Carte scambiate</Text></View>
-                </View>
+        <View style={styles.cardsSummaryContainer}>
+          <View style={styles.infoBox}>
+            <View style={styles.infoBoxNumber}>
+              <Text style={styles.infoBoxNumberT}>{cards.length !== [] ? cards.length : 0}</Text>
             </View>
-=======
-      <View style={styles.cardsSummaryContainer}>
-        <View style={styles.infoBox}>
-          <View style={styles.infoBoxNumber}>
-            <Text style={styles.infoBoxNumberT}>{cards.length !== [] ? cards.length : 0}</Text>
+            <View style={styles.infoBoxText}>
+              <Text style={styles.infoBoxTextT}>Carte in  lista</Text>
+            </View>
           </View>
-          <View style={styles.infoBoxText}>
-            <Text style={styles.infoBoxTextT}>Carte in  lista</Text>
-          </View>
-        </View>
-        <View style={styles.infoBox}>
-          <View style={styles.infoBoxNumber}>
-            <Text style={styles.infoBoxNumberT}>7</Text>
-          </View>
-          <View style={styles.infoBoxText}>
-            <Text style={styles.infoBoxTextT}>Carte scambiate</Text>
+          <View style={styles.infoBox}>
+            <View style={styles.infoBoxNumber}>
+              <Text style={styles.infoBoxNumberT}>7</Text>
+            </View>
+            <View style={styles.infoBoxText}>
+              <Text style={styles.infoBoxTextT}>Carte scambiate</Text>
+            </View>
           </View>
         </View>
       </View>
->>>>>>> ccd7748aa7d3fc91987630fdeb40c577e2af0e36
-
-
-    </View>
+    </ScrollView>
   )
 }
 
