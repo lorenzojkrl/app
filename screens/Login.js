@@ -57,11 +57,11 @@ export default function Login({ navigation }) {
     }
 
     return (
-        <>
-            <View style={styles.loginSpace}>
-                <Header><Text>Nome App</Text></Header>
-                <Spacer size={30} />
+        <View style={styles.loginSpace}>
+            <Header><Text>Nome App</Text></Header>
+            <Spacer size={30} />
 
+<<<<<<< HEAD
                 <Title title={'Accedi'}></Title>
                 <Form inputs={inputs} updateInputValue={setFormValue} />
                 <Button
@@ -80,7 +80,22 @@ export default function Login({ navigation }) {
                 
             </View>
         </>
+=======
+            <Title title={'Accedi'}></Title>
+            <Form inputs={inputs} updateInputValue={setFormValue} />
+            <Button
+                disabled={loading || !formData.valid}
+                name={'ACCEDI'}
+                submit={submitLogin}
+            />
+>>>>>>> ccd7748aa7d3fc91987630fdeb40c577e2af0e36
 
+            <Text>Hai dimenticato la password?</Text>
+            <Text>Non sei iscritto?</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
+                <Text style={styles.registrationText}>Registrati!</Text>
+            </TouchableOpacity>
+        </View>
     )
 }
 
@@ -88,7 +103,7 @@ const styles = StyleSheet.create({
     loginSpace: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
     },
     registrationText: {
         textDecorationLine: 'underline',
