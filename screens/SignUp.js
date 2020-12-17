@@ -54,6 +54,7 @@ export default function SignUp() {
             <View style={styles.loginSpace}>
                 <Header><Text>Nome App</Text></Header>
                 <Spacer size={10} />
+                <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} />
                 <Title title={'Registrati'}></Title>
                 <Form inputs={inputs} updateInputValue={setFormValue} />
                 <Row>

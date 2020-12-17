@@ -28,7 +28,8 @@ const SuccessfulTransfer = ({ navigation, route }) => {
                             		? require('../assets/logo_minecraft.png') 
                             		: (game === "pokemon") 
                             		? require('../assets/logo_pokemon.png') 
-                            		: (game === "supermario") ? require('../assets/logo_supermario.jpeg') 
+                            		: (game === "supermario") 
+									? require('../assets/logo_supermario.jpeg') 
                             		: null} />
 						</View>
 						<Text>{console.log(name)}</Text>
@@ -57,16 +58,14 @@ const styles = StyleSheet.create({
 		height: 100,
 		width: '85%',
 		justifyContent: 'center',
-		borderWidth: 1,
-		borderColor: 'red',
+		
 	},
 	profileContainer: {
 		flex: 1,
 		width: '80%',
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
-		borderWidth: 1,
-		borderColor: 'red'
+		
 	},
 	subTitle: {
 		fontSize: 15,

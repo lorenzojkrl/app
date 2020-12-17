@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react'
 import { Animated, StyleSheet, View, Text } from 'react-native'
 import Button from './Button'
 import colors from '../config/colors'
-import spacer from '../config/spaces'
+import spaces from '../config/spaces'
 
 
 export default function Alert({
@@ -38,14 +38,15 @@ export default function Alert({
         }
 
         {
-            onClose && ( 
+            onClose&& ( 
             <Button 
                 style={styles.button} 
                 color={colors.black} 
-                onPress={onClose}>
-                Chiudi
+                onPress={onClose}
+                name={"CHIUDI"}>                
             </Button>
         )}
+        }
       </View>
     </Animated.View>
   )
@@ -53,13 +54,13 @@ export default function Alert({
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: spacer.containerSpace,
+    paddingHorizontal: spaces.containerSpace,
     width: '100%',
     position: 'absolute',
     top: 0,
     left: 0,
     zIndex: 1,
-    paddingHorizontal: spacer.containerSpace,
+    paddingHorizontal: spaces.containerSpace,
     paddingTop: 10
   },
   containerInternal: {
@@ -79,7 +80,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.red
   },
   message: {
-    color: colors.white,
+    color: 'red',
     fontWeight: 'bold',
     fontSize: 16,
     paddingRight: 15,
