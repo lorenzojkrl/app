@@ -15,7 +15,7 @@ const CardProfile = ({ navigation, route }) => {
                     <EvilIcons name="arrow-left" size={60} color="black" />
                 </TouchableOpacity>
                 <View style={styles.profileContainer}>
-                    <Title title={name}></Title>
+                    <Title title={name} color='#666'></Title>
                     <Text style={styles.subTitle}>Code: {id}</Text>
                     <Text style={styles.subTitle}>Year: {created_at.slice(0, 4)}</Text>
                     <Text style={styles.subTitle}>Game: {game}</Text>
@@ -48,23 +48,25 @@ const styles = StyleSheet.create({
         height: 100,
         width: '85%',
         justifyContent: 'center',
-        borderWidth: 1,
-        borderColor: 'red',
+        // borderWidth: 1,
+        // borderColor: 'red',
     },
     profileContainer: {
         flex: 1,
         width: '80%',
         alignItems: 'flex-start',
         justifyContent: 'flex-start',
-        borderWidth: 1,
-        borderColor: 'red'
+        // borderWidth: 1,
+        // borderColor: 'red'
     },
     subTitle: {
         fontSize: 15,
+        color: '#666'
     },
     description: {
         marginTop: 10,
-        fontSize: 20
+        fontSize: 20,
+        color: '#666'
     },
     img: {
         width: 100,

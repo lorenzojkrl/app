@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { View, StyleSheet, Text, ScrollView } from 'react-native'
 import CheckBox from '@react-native-community/checkbox';
 import Title from '../components/Title'
@@ -8,43 +8,52 @@ import Button from '../components/Button'
 import Spacer from '../components/Spacer'
 import Form from '../components/Form'
 import useForm from '../hooks/useForm'
+import api from '../utility/api'
+import { AuthContext } from '../context/AuthContext'
+import { rootNavigation } from '../utility/navigation.js'
+
 
 const inputs = [
-    { label: 'Email', name: 'username_email' },
+    { label: 'Name', name: 'name' },
+    { label: 'Surname', name: 'surname' },
+    { label: 'Email', name: 'email' },
     { label: 'Username', name: 'username' },
     { label: 'Password', name: 'password', secureTextEntry: true },
-    { label: 'Ripeti Password', name: 'ripeti_password', secureTextEntry: true },
+    { label: 'Ripeti Password', name: 'password_confirmation', secureTextEntry: true },
 ]
 
 export default function SignUp() {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
     const [loading, setLoading] = useState(false)
-    const requiredInputs = ['username_email', 'username', 'password', 'ripeti_password']
+    const requiredInputs = ['name', 'surname', 'email', 'username', 'password', 'password_confirmation']
     const [formData, setFormValue] = useForm(requiredInputs)
+    const [error, setError] = useState(false)
+    const [messageOpen, setMessageOpen] = useState(false)
+    const { manageUserData } = useContext(AuthContext)
 
 
     const submitSignup = async () => {
-        console.log('TO be concluded')
-        // review for signup
-        // try {
-        //     setLoading(true)
-        //     const response = await api.post('authentication/login-action', formData.values)
-        //     const { result, errors, payload } = response
-        //     if (result) {
-        //         manageUserData(payload)
-        //         rootNavigation.current.navigate('Main')
-        //     } else {
-        //         setError(errors[0].message)
-        //         setMessageOpen(true)
-        //     }
-        // } catch (err) {
-        //     console.warn(err)
-        //     setError(err)
-        //     setMessageOpen(true)
+        try {
+            setLoading(true)
+            const response = await api.post('authentication/signup-action', formData.values)
+            const { result, errors, payload } = response
+            console.log(response)
 
-        // } finally {
-        //     setLoading(false)
-        // }
+            if (result) {
+                manageUserData(payload)
+                rootNavigation.current.navigate('Main')
+            } else {
+                setError(errors[0].message)
+                setMessageOpen(true)
+            }
+        } catch (err) {
+            console.warn(err)
+            setError(err)
+            setMessageOpen(true)
+
+        } finally {
+            setLoading(false)
+        }
     }
 
     return (
