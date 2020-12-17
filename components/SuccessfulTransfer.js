@@ -1,10 +1,63 @@
-import React from 'react';
-import { Text } from 'react-native'
+import React, { useContext } from 'react';
+import { Text, View, StyleSheet } from 'react-native';
 
-const SuccessfulTransfer = () => {
+import { AuthContext } from '../context/AuthContext'
+import { AntDesign } from '@expo/vector-icons';
+
+import LoggedInHeader from '../components/LoggedInHeader'
+import Button from '../components/Button'
+import Spacer from '../components/Spacer'
+
+
+const SuccessfulTransfer = ({ navigation }) => {
+    const { user } = useContext(AuthContext)
     return (
-        <Text >Success</Text>
+        <View style={styles.main}>
+
+            <LoggedInHeader user={user} />
+            <Spacer size="20" />
+            <Text style={styles.text}>
+                Trasferimento avvenuto con successo
+                  </Text>
+
+            <View style={styles.check}>
+                <AntDesign name="checkcircleo" size={100} color="#999" />
+            </View>
+
+            <Button
+                name={'TORNA ALLA LISTA'}
+                onPress={() => navigation.navigate('CardsScreen')}
+            />
+
+        </View>
     );
 };
-
 export default SuccessfulTransfer;
+
+
+const styles = StyleSheet.create({
+    main: {
+        flex: 1,
+        justifyContent: 'flex-start',
+        alignItems: 'center'
+    },
+    text: {
+        textAlign: 'center',
+        fontSize: 25,
+        fontWeight: 'bold',
+        paddingHorizontal: 30,
+        color: '#666',
+    },
+    check: {
+        width: 200,
+        height: 200,
+        borderRadius: 20,
+        borderColor: '#999',
+        borderWidth: 2,
+        marginTop: 40,
+        marginBottom: 25,
+
+        justifyContent: 'center',
+        alignItems: 'center',
+    }
+})
