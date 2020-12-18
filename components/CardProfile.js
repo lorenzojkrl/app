@@ -7,10 +7,11 @@ import { EvilIcons } from '@expo/vector-icons';
 
 const SuccessfulTransfer = ({ navigation, route }) => {
 	const { created_at, description, game, id, name, updatet_at, user_uuid } = route.params;
+
 	return (
 		<>
 			<ScrollView>
-				<Header><Text>Nome App</Text></Header >
+				<Header><Text>Nome App</Text></Header>
 				<View style={styles.mainContainer}>
 					<TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
 						<EvilIcons name="arrow-left" size={60} color="black" />
@@ -28,8 +29,9 @@ const SuccessfulTransfer = ({ navigation, route }) => {
                             		? require('../assets/logo_minecraft.png') 
                             		: (game === "pokemon") 
                             		? require('../assets/logo_pokemon.png') 
-                            		: (game === "supermario") ? require('../assets/logo_supermario.jpeg') 
-                            		: null} />
+                            		: (game === "supermario") 
+									? require('../assets/logo_supermario.jpeg') 
+                            		: require('../assets/Guybrush_Threepwood.png')} />
 						</View>
 						<Text>{console.log(name)}</Text>
 						<View style={{ alignSelf: 'center' }}>
@@ -39,7 +41,7 @@ const SuccessfulTransfer = ({ navigation, route }) => {
 					</View>
 
 				</View>
-			</ScrollView >
+			</ScrollView>
 		</>
 	);
 };

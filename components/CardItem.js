@@ -6,7 +6,6 @@ import { EvilIcons } from '@expo/vector-icons';
 const CardItem = ({ data }) => {
     const { description, game, id, name } = data;
 
-    
     return (
         <View style={styles.card}>
             <View style={styles.img}>
@@ -16,8 +15,9 @@ const CardItem = ({ data }) => {
                             ? require('../assets/logo_minecraft.png') 
                             : (game === "pokemon") 
                             ? require('../assets/logo_pokemon.png') 
-                            : (game === "supermario") ? require('../assets/logo_supermario.jpeg') 
-                            : null} />
+                            : (game === "supermario") 
+                            ? require('../assets/logo_supermario.jpeg') 
+                            : require('../assets/Guybrush_Threepwood.png')} />
             </View>
             <View style={styles.text}>
                 <Text>
