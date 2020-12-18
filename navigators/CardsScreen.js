@@ -12,6 +12,7 @@ const CardsScreen = ({ navigation }) => {
   const [cards, setCards] = useState([])
   const [error, setError] = useState(false)
   const [messageOpen, setMessageOpen] = useState(false)
+  const [text, setText] = useState('')
 
   // TO refactor, duplicate from Main, same with setError, setMessageOpen, api
   const submitGet = async () => {
@@ -50,6 +51,11 @@ const CardsScreen = ({ navigation }) => {
 
         <View style={styles.main}>
           <Title title={`Le mie Carte`} />
+          <TextInput
+            style={styles.input}
+            placeholder={'Inserisci il nome della carta'}
+            onChangeText={text => setText(text)}
+          />
           <FlatList
             data={cards}
             renderItem={({ item }) => (
@@ -85,4 +91,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // backgroundColor: 'pink',
   },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10
+}
 })
