@@ -45,7 +45,7 @@ const SuccessfulTransfer = ({ navigation, route }) => {
 	);
 };
 
-export default SuccessfulTransfer;
+export default CardProfile;
 
 
 const styles = StyleSheet.create({
