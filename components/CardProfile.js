@@ -10,7 +10,7 @@ const SuccessfulTransfer = ({ navigation, route }) => {
 	return (
 		<>
 			<ScrollView>
-				<Header><Text>Nome App</Text></Header >
+				<Header><Text>Nome App</Text></Header>
 				<View style={styles.mainContainer}>
 					<TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
 						<EvilIcons name="arrow-left" size={60} color="black" />
@@ -22,14 +22,14 @@ const SuccessfulTransfer = ({ navigation, route }) => {
 						<Text style={styles.subTitle}>Game: {game}</Text>
 						<Text style={styles.description}>{description.slice(1, -1)}</Text>
 						<View style={styles.img}>
-						<Image
-                    		style={styles.logoGame}
-                    		source={(game === "minecraft") 
-                            		? require('../assets/logo_minecraft.png') 
-                            		: (game === "pokemon") 
-                            		? require('../assets/logo_pokemon.png') 
-                            		: (game === "supermario") ? require('../assets/logo_supermario.jpeg') 
-                            		: null} />
+							<Image
+								style={styles.logoGame}
+								source={(game === "minecraft")
+									? require('../assets/logo_minecraft.png')
+									: (game === "pokemon")
+										? require('../assets/logo_pokemon.png')
+										: (game === "supermario") ? require('../assets/logo_supermario.jpeg')
+											: null} />
 						</View>
 						<Text>{console.log(name)}</Text>
 						<View style={{ alignSelf: 'center' }}>
@@ -84,10 +84,10 @@ const styles = StyleSheet.create({
 		// borderWidth: 1,
 		// borderColor: 'red',
 	},
-	logoGame:{
+	logoGame: {
 		width: 95,
-        height: 95,
-        justifyContent: 'center',
-        alignItems: 'center'
+		height: 95,
+		justifyContent: 'center',
+		alignItems: 'center'
 	}
 })

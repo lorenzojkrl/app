@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bf07644-6e05-4c89-a51a-968067e1544e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/CardProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CardProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ExchangeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ExchangeScreen.js" afterDir="false" />
-    </list>
+    <list default="true" id="4bf07644-6e05-4c89-a51a-968067e1544e" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,12 +35,12 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="393" y="237" width="1073" height="724" key="AVDManager" timestamp="1608214223283">
+    <state x="408" y="151" width="1073" height="724" key="AVDManager" timestamp="1608279118886">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="93" width="1146" height="488" key="AVDManager/0.0.1366.728@0.0.1366.728" timestamp="1607765467787" />
     <state x="141" y="138" width="1611" height="724" key="AVDManager/54.1080.1920.1080/0.0.1920.1080@0.0.1920.1080" timestamp="1608021063522" />
-    <state x="393" y="237" width="1073" height="724" key="AVDManager/54.1080.1920.1080/0.0.1920.1080@54.1080.1920.1080" timestamp="1608214223283" />
+    <state x="408" y="151" width="1073" height="724" key="AVDManager/54.1080.1920.1080/0.0.1920.1080@54.1080.1920.1080" timestamp="1608279118886" />
     <state x="670" y="301" width="424" height="491" key="FileChooserDialogImpl" timestamp="1607936607234">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
