@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity } from 'react-native'
+import { Text, View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
 import Header from '../components/Header'
 import Title from '../components/Title'
 import Button from '../components/Button'
@@ -8,7 +8,7 @@ import { EvilIcons } from '@expo/vector-icons';
 const CardProfile = ({ navigation, route }) => {
     const { created_at, description, game, id, name, updatet_at, user_uuid } = route.params;
     return (
-        <>
+        <ScrollView>
             <Header><Text>Nome App</Text></Header>
             <View style={styles.mainContainer}>
                 <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
@@ -31,7 +31,7 @@ const CardProfile = ({ navigation, route }) => {
 
             </View>
 
-        </>
+        </ScrollView>
     );
 };
 
