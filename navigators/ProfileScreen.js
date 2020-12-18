@@ -19,12 +19,10 @@ const CardsScreen = () => {
   const [messageOpen, setMessageOpen] = useState(false)
 
   const generateCode = async () => {
-    console.log("Code here")
-
     try {
       const response = await api.post('refresh-portfolio-code',)
       const { result, errors, payload } = response
-      console.log('result is: ', payload)
+      // console.log('result is: ', payload)
       if (result) {
         setCode(payload)
       }

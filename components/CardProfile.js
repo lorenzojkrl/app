@@ -10,7 +10,7 @@ const CardProfile = ({ navigation, route }) => {
 	return (
 		<>
 			<ScrollView>
-				<Header><Text>Nome App</Text></Header >
+				<Header><Text>Nome App</Text></Header>
 				<View style={styles.mainContainer}>
 					<TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
 						<EvilIcons name="arrow-left" size={60} color="black" />
@@ -32,15 +32,14 @@ const CardProfile = ({ navigation, route }) => {
 									? require('../assets/logo_supermario.jpeg') 
                             		: null} />
 						</View>
-						<Text>{console.log(name)}</Text>
 						<View style={{ alignSelf: 'center' }}>
-							<Button name={'TRASFERISCI'} ></Button>
+							<Button name={'TRASFERISCI'} submit={() => navigation.navigate('ExchangeScreen', route)} ></Button>
 						</View>
 
 					</View>
 
 				</View>
-			</ScrollView >
+			</ScrollView>
 		</>
 	);
 };
@@ -83,7 +82,7 @@ const styles = StyleSheet.create({
 		// borderWidth: 1,
 		// borderColor: 'red',
 	},
-	logoGame:{
+	logoGame: {
 		width: 95,
         height: 95,
         justifyContent: 'center',

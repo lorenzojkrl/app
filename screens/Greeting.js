@@ -4,10 +4,8 @@ import Title from '../components/Title'
 import Header from '../components/Header'
 import Button from '../components/Button'
 import Paragraph from '../components/Paragraph'
-import NavigationTab from '../components/NavigationTab'
 
-
-export default function Greeting() {
+export default function Greeting({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
@@ -18,8 +16,10 @@ export default function Greeting() {
                 <Paragraph align="center">
                     Benvenuto nella nostra app. Prima di continuare controlla la tua mail e verifica l'indirizzo cliccando sul link che ti abbiamo inviato
                 </Paragraph>
-                <Button name={'LOGIN'} />
-                <NavigationTab />
+                <Button
+                    name={'LOGIN'}
+                    submit={() => navigation.navigate('Login')}
+                />
             </View>
         </View>
     )
