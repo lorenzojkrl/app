@@ -59,6 +59,7 @@ export default function Login({ navigation }) {
 
     return (
         <>
+         <Alert message={error} open={messageOpen} onClose={() => setMessageOpen(false)} typology={error ? 'danger' : 'success'} />
             <ScrollView>
                 <View style={styles.loginSpace}>
                     <Header><Text>Nome App</Text></Header>

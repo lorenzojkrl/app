@@ -51,11 +51,6 @@ const CardsScreen = ({ navigation }) => {
 
         <View style={styles.main}>
           <Title title={`Le mie Carte`} />
-          <TextInput
-            style={styles.input}
-            placeholder={'Inserisci il nome della carta'}
-            onChangeText={text => setText(text)}
-          />
           <FlatList
             data={cards}
             renderItem={({ item }) => (
