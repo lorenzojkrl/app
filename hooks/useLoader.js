@@ -14,9 +14,9 @@ export default function useLoader() {
                 setToken(token);
                 setTokenProv(token);
 
-                // l'endpoint non è ancora esistente
-                // try{
-                //     const {result,payload} = await api.get("authentication/refresh_token")
+                // commenta se l'endpoint non è ancora esistente
+                // try {
+                //     const { result, payload } = await api.post("refresh-token")
                 //     if (result) {
                 //         manageUserData(payload);
                 //     }

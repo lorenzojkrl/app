@@ -11,9 +11,10 @@ import LoggedInHeader from '../components/LoggedInHeader'
 
 // usare createBottommTabNavigator: https://reactnavigation.org/docs/bottom-tab-navigator/
 export default function Main() {
-  const [cards, setCards] = useState([])
   const [currentDate, setCurrentDate] = useState('');
-  const { user } = useContext(AuthContext)
+  const { user, counter, manageCards, cards } = useContext(AuthContext)
+  const [cardsRender, setCardsRender] = useState([])
+
   const [error, setError] = useState(false)
   const [messageOpen, setMessageOpen] = useState(false)
 
@@ -24,7 +25,8 @@ export default function Main() {
       // console.log(result)
       if (result) {
         // console.log('payload--------------------', payload.cards)
-        setCards(payload.cards)
+        setCardsRender(payload.cards)
+
       } else {
         setError(errors[0].message)
         setMessageOpen(true)
@@ -34,6 +36,7 @@ export default function Main() {
       setError(err)
       setMessageOpen(true)
     }
+    manageCards(cardsRender)
     // console.log('user from AuthCont ------------------------------------', user.name)
     // console.log('cards ------------------------------------', cards)
   }
@@ -44,7 +47,7 @@ export default function Main() {
     var year = new Date().getFullYear(); //Current Year
     setCurrentDate(date + '/' + month + '/' + year);
     submitGet()
-  }, []);
+  }, [counter]);
 
 
   return (
@@ -60,7 +63,18 @@ export default function Main() {
         <View style={styles.cardsSummaryContainer}>
           <View style={styles.infoBox}>
             <View style={styles.infoBoxNumber}>
-              <Text style={styles.infoBoxNumberT}>{cards.length !== [] ? cards.length : 0}</Text>
+              <Text style={styles.infoBoxNumberT}>
+                {
+                  cardsRender !== []
+                    ? <Text>{cardsRender.length}</Text>
+                    : <Text>No</Text>
+                }
+                {/* {
+                  JSON.parse(cards).length !== 0
+                    ? console.log("JSON:",JSON.parse(cards).length)
+                    : 0
+                } */}
+              </Text>
             </View>
             <View style={styles.infoBoxText}>
               <Text style={styles.infoBoxTextT}>Carte in  lista</Text>
@@ -68,7 +82,7 @@ export default function Main() {
           </View>
           <View style={styles.infoBox}>
             <View style={styles.infoBoxNumber}>
-              <Text style={styles.infoBoxNumberT}>7</Text>
+              <Text style={styles.infoBoxNumberT}>{counter}</Text>
             </View>
             <View style={styles.infoBoxText}>
               <Text style={styles.infoBoxTextT}>Carte scambiate</Text>

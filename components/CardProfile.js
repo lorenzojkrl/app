@@ -5,7 +5,7 @@ import Title from '../components/Title'
 import Button from '../components/Button'
 import { EvilIcons } from '@expo/vector-icons';
 
-const SuccessfulTransfer = ({ navigation, route }) => {
+const CardProfile = ({ navigation, route }) => {
 	const { created_at, description, game, id, name, updatet_at, user_uuid } = route.params;
 	return (
 		<>
@@ -39,7 +39,7 @@ const SuccessfulTransfer = ({ navigation, route }) => {
 					</View>
 
 				</View>
-			</ScrollView >
+			</ScrollView>
 		</>
 	);
 };

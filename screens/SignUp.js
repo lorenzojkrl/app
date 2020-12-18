@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { View, StyleSheet, Text, ScrollView } from 'react-native'
+import { View, StyleSheet, Text, ScrollView, TouchableOpacity } from 'react-native'
 import CheckBox from '@react-native-community/checkbox';
 import Title from '../components/Title'
 import Header from '../components/Header'
@@ -24,7 +24,7 @@ const inputs = [
 ]
 
 
-export default function SignUp() {
+export default function SignUp({ navigation }) {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
     const [loading, setLoading] = useState(false)
     const requiredInputs = ['name', 'surname', 'email', 'username', 'password', 'password_confirmation']
@@ -43,7 +43,8 @@ export default function SignUp() {
 
             if (result) {
                 manageUserData(payload)
-                rootNavigation.current.navigate('Main')
+                // rootNavigation.current.navigate('Greeting')
+                navigation.navigate('Greeting')
             } else {
                 setError(errors[0].message)
                 setMessageOpen(true)
@@ -72,12 +73,16 @@ export default function SignUp() {
                     />
                     <Text>Ho letto e accetto la normativa della Privacy</Text>
                 </Row>
-                <Button
-                    name={'ISCRIVITI'}
-                    disabled={loading || !formData.valid}
-                    // disabled={true}
-                    submit={submitSignup}
-                />
+
+                <TouchableOpacity>
+                    <Button
+                        name={'ISCRIVITI'}
+                        disabled={loading || !formData.valid}
+                        // disabled={true}
+                        submit={submitSignup}
+                    />
+                </TouchableOpacity>
+
             </View>
         </ScrollView>
 

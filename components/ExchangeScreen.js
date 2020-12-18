@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import {
     Text,
     View,
@@ -12,18 +12,22 @@ import {
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { QRCode } from 'react-native-custom-qr-codes-expo';
 import { EvilIcons } from '@expo/vector-icons';
-
+import api from '../utility/api'
+import { AuthContext } from '../context/AuthContext'
 import Header from '../components/Header'
 import Title from '../components/Title'
 import Button from '../components/Button'
 
 
 const ExchangeScreen = ({ navigation, route }) => {
-    // const { created_at, description, game, id, name, updatet_at, user_uuid } = route.params;
+    const { created_at, description, game, id, name, updatet_at, user_uuid } = route.params.params;
     const [qrAvailable, setQRAvailable] = useState(true)
     const [hasPermission, setHasPermission] = useState(null);
     const [scanned, setScanned] = useState(false);
-    const [qrData, setQrData] = useState('');
+    const [qrData, setQrData] = useState(''); // qrData = portfolio code
+    const [error, setError] = useState(false)
+    const [messageOpen, setMessageOpen] = useState(false)
+    const { transferCounter, counter } = useContext(AuthContext)
 
     //Costanti per la dimensione del BarCodeScanner
     const myScreenW = Dimensions.get('window').width;
@@ -34,6 +38,8 @@ const ExchangeScreen = ({ navigation, route }) => {
             const { status } = await BarCodeScanner.requestPermissionsAsync();
             setHasPermission(status === 'granted');
         })();
+        // console.log('route.params.params: ', route.params.params)
+
     }, []);
 
     const handleBarCodeScanned = ({ type, data }) => {
@@ -47,6 +53,37 @@ const ExchangeScreen = ({ navigation, route }) => {
     }
     if (hasPermission === false) {
         return <Text>No access to camera</Text>;
+    }
+
+    const transferCard = async () => {
+        const cardData = {
+            "card_id": id,
+            "portfolio_code": qrData
+        }
+        console.log('cardData: ', cardData)
+
+        try {
+            const response = await api.post('move-card', cardData)
+            const { result, errors, payload } = response
+            // console.log('response:', response)
+            console.log('result -----------', response)
+
+            if (result) {
+                let newCounter = parseInt(counter)
+                newCounter++
+                transferCounter(JSON.stringify(newCounter))
+                navigation.navigate('SuccessfulTransfer')
+
+            } else {
+                setError(errors[0].message)
+                setMessageOpen(true)
+            }
+        } catch (err) {
+            console.warn(err)
+            setError(err)
+            setMessageOpen(true)
+
+        }
     }
 
     return (
@@ -85,9 +122,9 @@ const ExchangeScreen = ({ navigation, route }) => {
                                                 style={{ alignSelf: 'center' }}
                                             />
 
-                                            <TouchableOpacity 
-                                            style={styles.img} 
-                                            onPress={()=> setScanned(false)}
+                                            <TouchableOpacity
+                                                style={styles.img}
+                                                onPress={() => setScanned(false)}
                                             >
                                                 <QRCode
                                                     content={qrData}
@@ -98,7 +135,7 @@ const ExchangeScreen = ({ navigation, route }) => {
 
                                         </>
                                 }
-
+                                {/* TO be changed with !qrCode*/}
                                 <TouchableOpacity onPress={() => setQRAvailable(false)}>
                                     <Text style={styles.isQRAvailable}>Non ho un QR Code</Text>
                                 </TouchableOpacity>
@@ -111,8 +148,8 @@ const ExchangeScreen = ({ navigation, route }) => {
                                 <TextInput
                                     style={styles.input}
                                     placeholder={'Inserisci il codice qui'}
-                                // onChangeText={text => onChangeText(text)}
-                                // value={value}
+                                    onChangeText={qrData => setQrData(qrData)}
+                                    value={qrData}
                                 />
 
                                 <TouchableOpacity onPress={() => setQRAvailable(true)}>
@@ -124,7 +161,9 @@ const ExchangeScreen = ({ navigation, route }) => {
                     <TouchableOpacity style={{ alignSelf: 'center' }}>
                         <Button
                             name={'TRASFERISCI'}
-                            submit={() => navigation.navigate('SuccessfulTransfer')}
+                            // submit={() => navigation.navigate('SuccessfulTransfer')}
+                            submit={() => transferCard()}
+                        // submit={() => console.log(qrData)}
                         />
                     </TouchableOpacity>
                 </View>

@@ -6,17 +6,18 @@ import NavigationTab from './NavigationTab'
 import { AuthContext } from '../context/AuthContext'
 
 
+
 const AppStack = createStackNavigator()
 
 export default function AppNavigator() {
-    const { token } = useContext(AuthContext)
+    const { user } = useContext(AuthContext)
 
 
     return (
         <AppStack.Navigator
-            //initialRouteName={token ? "Main" : "Auth"}
+            initialRouteName={user ? "Main" : "Auth"}
 
-            initialRouteName={"Auth"}
+            // initialRouteName={"Main"}
             screenOptions={{
                 headerShown: false,
                 cardStyle: { paddingTop: 0 },
@@ -24,6 +25,7 @@ export default function AppNavigator() {
         >
             <AppStack.Screen name="Auth" component={Auth} />
             <AppStack.Screen name="Main" component={Main} />
+
             <AppStack.Screen name="NavigationTab" component={NavigationTab} />
 
         </AppStack.Navigator>

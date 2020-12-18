@@ -8,7 +8,7 @@ import api from '../utility/api'
 import CardItem from '../components/CardItem'
 
 const CardsScreen = ({ navigation }) => {
-  const { user } = useContext(AuthContext)
+  const { user, counter } = useContext(AuthContext)
   const [cards, setCards] = useState([])
   const [error, setError] = useState(false)
   const [messageOpen, setMessageOpen] = useState(false)
@@ -37,7 +37,7 @@ const CardsScreen = ({ navigation }) => {
 
   useEffect(() => {
     submitGet()
-  }, []);
+  }, [counter]);
 
   if (cards < 1) {
     return (
