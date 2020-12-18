@@ -26,7 +26,7 @@ const SuccessfulTransfer = ({ navigation }) => {
 
             <Button
                 name={'TORNA ALLA LISTA'}
-                onPress={() => navigation.navigate('CardsScreen')}
+                submit={() => navigation.navigate('CardsScreen')}
             />
 
         </View>

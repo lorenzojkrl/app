@@ -33,7 +33,7 @@ const SuccessfulTransfer = ({ navigation, route }) => {
 						</View>
 						<Text>{console.log(name)}</Text>
 						<View style={{ alignSelf: 'center' }}>
-							<Button name={'TRASFERISCI'} ></Button>
+							<Button name={'TRASFERISCI'} submit={() => navigation.navigate('ExchangeScreen', route)} ></Button>
 						</View>
 
 					</View>
@@ -44,7 +44,7 @@ const SuccessfulTransfer = ({ navigation, route }) => {
 	);
 };
 
-export default SuccessfulTransfer;
+export default CardProfile;
 
 
 const styles = StyleSheet.create({
