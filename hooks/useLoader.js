@@ -10,19 +10,20 @@ export default function useLoader() {
     useEffect(() => {
         const load = async () => {
             const token = await AsyncStorage.getItem('AuthToken');
+            console.log('token in useLoader', token)
             if (token) {
                 setToken(token);
                 setTokenProv(token);
 
                 // commenta se l'endpoint non è ancora esistente
-                // try {
-                //     const { result, payload } = await api.post("refresh-token")
-                //     if (result) {
-                //         manageUserData(payload);
-                //     }
-                // } catch (err) {
-                //     console.log(err);
-                // }
+                try {
+                    const { result, payload } = await api.post("refresh-token")
+                    if (result) {
+                        manageUserData(payload);
+                    }
+                } catch (err) {
+                    console.log(err);
+                }
             }
             setLoading(false);
         }

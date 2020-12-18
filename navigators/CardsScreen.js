@@ -1,43 +1,20 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Text, View, StyleSheet, FlatList, TouchableOpacity, SafeAreaView, StatusBar, ActivityIndicator } from 'react-native';
+import { View, StyleSheet, FlatList, TouchableOpacity, SafeAreaView, StatusBar, ActivityIndicator } from 'react-native';
 import LoggedInHeader from '../components/LoggedInHeader'
 import { AuthContext } from '../context/AuthContext'
 import Title from '../components/Title'
-import api from '../utility/api'
-// import { EvilIcons } from '@expo/vector-icons';
 import CardItem from '../components/CardItem'
+import { useIsFocused } from "@react-navigation/native"
 
 const CardsScreen = ({ navigation }) => {
-  const { user, counter } = useContext(AuthContext)
-  const [cards, setCards] = useState([])
-  const [error, setError] = useState(false)
-  const [messageOpen, setMessageOpen] = useState(false)
-
-  // TO refactor, duplicate from Main, same with setError, setMessageOpen, api
-  const submitGet = async () => {
-    try {
-      const response = await api.get('get-cards')
-      const { result, errors, payload } = response
-      // console.log(result)
-      if (result) {
-        console.log('payload--------------------', payload.cards)
-        setCards(payload.cards)
-      } else {
-        setError(errors[0].message)
-        setMessageOpen(true)
-      }
-    } catch (err) {
-      console.warn(err)
-      setError(err)
-      setMessageOpen(true)
-    }
-    // console.log('user from AuthCont ------------------------------------', user.name)
-    // console.log('cards ------------------------------------', cards)
-  }
+  const { user, getCards, cards } = useContext(AuthContext)
+  const isFocused = useIsFocused()
 
   useEffect(() => {
-    submitGet()
-  }, [counter]);
+    if (isFocused) {
+      getCards()
+    }
+  }, [isFocused])
 
   if (cards < 1) {
     return (

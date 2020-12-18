@@ -2,53 +2,61 @@ import React, { useState, useEffect, useContext } from "react"
 import { View, StyleSheet, Text, ScrollView } from 'react-native'
 
 import Title from '../components/Title'
-
+import Button from '../components/Button'
 import api from '../utility/api'
 import { EvilIcons } from '@expo/vector-icons';
 import { AuthContext } from '../context/AuthContext'
 
 import LoggedInHeader from '../components/LoggedInHeader'
+import { useIsFocused } from "@react-navigation/native"
 
 // usare createBottommTabNavigator: https://reactnavigation.org/docs/bottom-tab-navigator/
 export default function Main() {
   const [currentDate, setCurrentDate] = useState('');
-  const { user, counter, manageCards, cards } = useContext(AuthContext)
+  const { user, counter, getCards, cards, onLogout } = useContext(AuthContext)
   const [cardsRender, setCardsRender] = useState([])
+  const isFocused = useIsFocused()
 
-  const [error, setError] = useState(false)
-  const [messageOpen, setMessageOpen] = useState(false)
+  // const [error, setError] = useState(false)
+  // const [messageOpen, setMessageOpen] = useState(false)
 
-  const submitGet = async () => {
-    try {
-      const response = await api.get('get-cards')
-      const { result, errors, payload } = response
-      // console.log(result)
-      if (result) {
-        // console.log('payload--------------------', payload.cards)
-        setCardsRender(payload.cards)
+  // const submitGet = async () => {
+  //   try {
+  //     const response = await api.get('get-cards')
+  //     const { result, errors, payload } = response
+  //     // console.log(result)
+  //     if (result) {
+  //       // console.log('payload--------------------', payload.cards)
+  //       setCardsRender(payload.cards)
 
-      } else {
-        setError(errors[0].message)
-        setMessageOpen(true)
-      }
-    } catch (err) {
-      console.warn(err)
-      setError(err)
-      setMessageOpen(true)
-    }
-    manageCards(cardsRender)
-    // console.log('user from AuthCont ------------------------------------', user.name)
-    // console.log('cards ------------------------------------', cards)
-  }
+  //     } else {
+  //       setError(errors[0].message)
+  //       setMessageOpen(true)
+  //     }
+  //   } catch (err) {
+  //     console.warn(err)
+  //     setError(err)
+  //     setMessageOpen(true)
+  //   }
+  //   manageCards(cardsRender)
+  //   // console.log('user from AuthCont ------------------------------------', user.name)
+  //   // console.log('cards ------------------------------------', cards)
+  // }
 
   useEffect(() => {
     var date = new Date().getDate(); //Current Date
     var month = new Date().getMonth() + 1; //Current Month
     var year = new Date().getFullYear(); //Current Year
     setCurrentDate(date + '/' + month + '/' + year);
-    submitGet()
-  }, [counter]);
 
+  }, []);
+
+  // RN non smonta componenti in navigation
+  useEffect(() => {
+    if (isFocused) {
+      getCards()
+    }
+  }, [isFocused])
 
   return (
     <ScrollView>
@@ -65,15 +73,10 @@ export default function Main() {
             <View style={styles.infoBoxNumber}>
               <Text style={styles.infoBoxNumberT}>
                 {
-                  cardsRender !== []
-                    ? <Text>{cardsRender.length}</Text>
-                    : <Text>No</Text>
+                  cards.length > 0
+                    ? <Text>{cards.length}</Text>
+                    : <Text>0</Text>
                 }
-                {/* {
-                  JSON.parse(cards).length !== 0
-                    ? console.log("JSON:",JSON.parse(cards).length)
-                    : 0
-                } */}
               </Text>
             </View>
             <View style={styles.infoBoxText}>
@@ -82,13 +85,16 @@ export default function Main() {
           </View>
           <View style={styles.infoBox}>
             <View style={styles.infoBoxNumber}>
-              <Text style={styles.infoBoxNumberT}>{counter}</Text>
+              <Text style={styles.infoBoxNumberT}>{counter || 0}</Text>
             </View>
             <View style={styles.infoBoxText}>
               <Text style={styles.infoBoxTextT}>Carte scambiate</Text>
             </View>
           </View>
         </View>
+        <Button
+          name={"LOG OUT"}
+          submit={onLogout} />
       </View>
     </ScrollView>
   )

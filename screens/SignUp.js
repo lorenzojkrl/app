@@ -39,7 +39,7 @@ export default function SignUp({ navigation }) {
             setLoading(true)
             const response = await api.post('authentication/signup-action', formData.values)
             const { result, errors, payload } = response
-            console.log(response)
+            // console.log(response)
 
             if (result) {
                 manageUserData(payload)

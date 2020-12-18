@@ -31,7 +31,6 @@ const CardProfile = ({ navigation, route }) => {
 										: (game === "supermario") ? require('../assets/logo_supermario.jpeg')
 											: null} />
 						</View>
-						<Text>{console.log(name)}</Text>
 						<View style={{ alignSelf: 'center' }}>
 							<Button name={'TRASFERISCI'} submit={() => navigation.navigate('ExchangeScreen', route)} ></Button>
 						</View>
