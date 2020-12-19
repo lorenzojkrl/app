@@ -6,6 +6,7 @@ import Header from '../components/Header'
 import Row from '../components/Row'
 import Button from '../components/Button'
 import Spacer from '../components/Spacer'
+import { StatusBar } from 'expo-status-bar';
 
 import Form from '../components/Form'
 import useForm from '../hooks/useForm'
@@ -60,19 +61,19 @@ export default function SignUp({ navigation }) {
     }
 
     return (
-        <ScrollView>
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+            keyboardShouldPersistTaps="handled">
             <View style={styles.loginSpace}>
                 <Header><Text>Nome App</Text></Header>
                 <Spacer size={10} />
                 {
-                       messageOpen
-                       ?<View>
-                            <Text style={{color: 'red'}}>ATTENTION! {error} {console.log(error)}</Text>
-                       </View>
-                       : requiredInputs
-                       ? <Text style={{color: 'green'}}>Credenziali Corrette</Text>
-                       : null
-                    }
+                    messageOpen
+                        ? <View style={styles.errorContainer}>
+                            <Text style={{}}>ATTENTION! {error}</Text>
+                        </View>
+                        : console.log(messageOpen)
+                }
                 {/* <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} /> */}
                 <Title title={'Registrati'}></Title>
                 <Form inputs={inputs} updateInputValue={setFormValue} />
@@ -102,6 +103,17 @@ export default function SignUp({ navigation }) {
 const styles = StyleSheet.create({
     main: {
         backgroundColor: "#eaeaea"
+    },
+    errorContainer: {
+        flex: 1,
+        width: '95%',
+        paddingHorizontal: 15,
+        height: 50,
+        backgroundColor: 'red',
+        borderRadius: 10,
+        justifyContent: 'center',
+        textAlign: 'center',
+        flexDirection: 'column',
     },
     loginSpace: {
         flex: 1,

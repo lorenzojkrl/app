@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { View, StyleSheet, Text, TouchableOpacity, ScrollView } from 'react-native'
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView, TouchableHighlight } from 'react-native'
 
 import Title from '../components/Title'
 import Header from '../components/Header'
@@ -60,18 +60,20 @@ export default function Login({ navigation }) {
 
     return (
         <>
-         
-            <ScrollView>
-         
+
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                keyboardShouldPersistTaps="handled">
+
                 <View style={styles.loginSpace}>
                     <Header><Text>Nome App</Text></Header>
-                    <Spacer size={30} />
+                    <Spacer size={10} />
                     {
-                       error
-                       ?<View style={styles.errorContainer}>
-                            <Text style={{}}>ATTENTION! {error}</Text>
-                       </View>
-                       : null
+                        error
+                            ?<View style={styles.errorContainer}>
+                                <Text style={{}}>ATTENTION! {error}</Text>
+                            </View>
+                            : null
                     }
                     <Title title={'Accedi'}></Title>
                     <Form inputs={inputs} updateInputValue={setFormValue} />
@@ -85,9 +87,9 @@ export default function Login({ navigation }) {
                     <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
                         <Text style={styles.registrationText}>Registrati!</Text>
                     </TouchableOpacity>
-                  
-                        
-                   
+
+
+
                 </View>
             </ScrollView>
         </>
@@ -104,29 +106,18 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         fontWeight: 'bold'
     },
-    errorContainer:{
+    errorContainer: {
         flex: 1,
         width: '95%',
-        paddingHorizontal: 15, 
-        height: 50, 
+        paddingHorizontal: 15,
+        height: 50,
         backgroundColor: 'red',
         borderRadius: 10,
         justifyContent: 'center',
         textAlign: 'center',
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
-    correctContainer:{
-        flex: 1,
-        width: '95%',
-        paddingHorizontal: 15, 
-        height: 50, 
-        backgroundColor: 'green',
-        borderRadius: 10,
-        justifyContent: 'center',
-        textAlign: 'center',
-        flexDirection: 'column'
-    },
-    textError:{
+    textError: {
         fontSize: 50,
         color: 'white',
         fontWeight: 'bold'

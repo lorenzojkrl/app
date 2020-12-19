@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { View, StyleSheet, FlatList, TouchableOpacity, SafeAreaView, StatusBar, ActivityIndicator } from 'react-native';
+import { View, StyleSheet, FlatList, TouchableOpacity, SafeAreaView, StatusBar, ActivityIndicator, Text } from 'react-native';
 import LoggedInHeader from '../components/LoggedInHeader'
 import { AuthContext } from '../context/AuthContext'
 import Title from '../components/Title'
@@ -18,15 +18,25 @@ const CardsScreen = ({ navigation }) => {
 
   if (cards < 1) {
     return (
-      <ActivityIndicator size={150} color="blue" style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}/>
+      <>
+      <ActivityIndicator size={150} color="blue" style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}} animating={false}/>
+      <Text>Nessuna Carta Trovata!</Text>
+      </>
     )
   } else {
     return (
+      <>
+      <ActivityIndicator size={150} color="blue" style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}/>
+      <LoggedInHeader user={user} />
       <SafeAreaView style={styles.container}>
-        <LoggedInHeader user={user} />
 
         <View style={styles.main}>
           <Title title={`Le mie Carte`} />
+          {
+            !cards
+            ? <Text>Nessuna Carta Trovata!</Text>
+            : null
+          }
           <FlatList
             data={cards}
             renderItem={({ item }) => (
@@ -41,6 +51,7 @@ const CardsScreen = ({ navigation }) => {
           />
         </View>
       </SafeAreaView>
+      </>
     );
   }
 
