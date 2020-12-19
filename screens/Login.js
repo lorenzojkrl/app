@@ -115,7 +115,18 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent: 'center',
         textAlign: 'center',
-        flexDirection: 'column',
+        flexDirection: 'column'
+    },
+    correctContainer: {
+        flex: 1,
+        width: '95%',
+        paddingHorizontal: 15,
+        height: 50,
+        backgroundColor: 'green',
+        borderRadius: 10,
+        justifyContent: 'center',
+        textAlign: 'center',
+        flexDirection: 'column'
     },
     textError: {
         fontSize: 50,

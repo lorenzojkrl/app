@@ -1,36 +1,43 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Image, Dimensions, } from 'react-native';
 import { EvilIcons } from '@expo/vector-icons';
 // import { rootNavigation } from '../utility/navigation.js'
 
 const CardItem = ({ data }) => {
     const { description, game, id, name } = data;
-
-    
+    const myScreenW = Dimensions.get('window').width;
     return (
-        <View style={styles.card}>
-            <View style={styles.img}>
-            <Image
-                    style={styles.logoGame}
-                    source={(game === "minecraft") 
-                            ? require('../assets/logo_minecraft.png') 
-                            : (game === "pokemon") 
-                            ? require('../assets/logo_pokemon.png') 
-                            : (game === "supermario") ? require('../assets/logo_supermario.jpeg') 
-                            : null} />
+
+
+
+        <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-between', backgroundColor: 'white', marginBottom: 10, borderRadius: 10, overflow: 'hidden' }} >
+            <View style={{ flexDirection: 'row' }} >
+                <View style={styles.img}>
+                    <Image
+                        style={styles.logoGame}
+                        source={(game === "minecraft")
+                            ? require('../assets/logo_minecraft.png')
+                            : (game === "pokemon")
+                                ? require('../assets/logo_pokemon.png')
+                                : (game === "supermario")
+                                    ? require('../assets/logo_supermario.jpeg')
+                                    : require('../assets/Guybrush_Threepwood.png')} />
+                </View>
+                <View style={styles.text}>
+                    <Text>
+                        Name: {name}
+                    </Text>
+                    <Text>
+                        Game: {game}
+                    </Text>
+                </View>
             </View>
-            <View style={styles.text}>
-                <Text>
-                    Name: {name}
-                </Text>
-                <Text>
-                    Game: {game}
-                </Text>
-            </View>
+
+
             <View style={styles.btnContainer}>
                 <EvilIcons name="arrow-right" size={40} color="black" />
             </View>
-        </View>
+        </View >
     )
 };
 
@@ -38,54 +45,56 @@ export default CardItem;
 
 const styles = StyleSheet.create({
     card: {
-        flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginVertical: 5,
         borderRadius: 2,
-        backgroundColor: 'grey'
+        backgroundColor: 'white'
         // borderWidth: 2,
         // borderColor: 'blue',
     },
     img: {
         width: 100,
         height: 100,
-        borderColor: 'black' ,
-        borderRadius: 10,
-        borderWidth: 1,
+        borderColor: 'black',
+        borderWidth: 0,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     text: {
-        width: 200,
         height: 100,
-        padding: 5,
+        padding: 10,
         // borderWidth: 1,
         // borderColor: 'red',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        paddingLeft: 20,
     },
     btnContainer: {
-        width: 50,
+
         height: 100,
         // borderWidth: 1,
         // borderColor: 'red',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        paddingRight: 30,
+
     },
-    logoGame:{
-		width: 95,
-        height: 95,
+    logoGame: {
+        width: '80%',
+        height: '80%',
         justifyContent: 'center',
-        alignItems: 'center'
-	}
+        alignItems: 'center',
+    }
 })
 
 /*
-<Image 
-                    style={{ 
+<Image
+                    style={{
                         width: 95,
                         height: 95,
                         justifyContent: 'center',
                         alignItems: 'center'}}
                     source={{
-                       
+
                     }}/>
 */
