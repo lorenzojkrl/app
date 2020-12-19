@@ -5,7 +5,7 @@ import Title from '../components/Title'
 import Header from '../components/Header'
 import Spacer from '../components/Spacer'
 import Button from '../components/Button'
-import Alert from '../components/Alert'
+// import Alert2 from '../components/Alert2'
 
 import { AuthContext } from '../context/AuthContext'
 import { rootNavigation } from '../utility/navigation.js'
@@ -32,6 +32,7 @@ export default function Login({ navigation }) {
     const [formData, setFormValue] = useForm(requiredInputs)
     const [loading, setLoading] = useState(false)
     const { manageUserData } = useContext(AuthContext)
+
     const [error, setError] = useState(false)
     const [messageOpen, setMessageOpen] = useState(false)
 
@@ -59,10 +60,19 @@ export default function Login({ navigation }) {
 
     return (
         <>
+         
             <ScrollView>
+         
                 <View style={styles.loginSpace}>
                     <Header><Text>Nome App</Text></Header>
                     <Spacer size={30} />
+                    {
+                       error
+                       ?<View style={styles.errorContainer}>
+                            <Text style={{}}>ATTENTION! {error}</Text>
+                       </View>
+                       : null
+                    }
                     <Title title={'Accedi'}></Title>
                     <Form inputs={inputs} updateInputValue={setFormValue} />
                     <Button
@@ -75,6 +85,9 @@ export default function Login({ navigation }) {
                     <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
                         <Text style={styles.registrationText}>Registrati!</Text>
                     </TouchableOpacity>
+                  
+                        
+                   
                 </View>
             </ScrollView>
         </>
@@ -89,6 +102,33 @@ const styles = StyleSheet.create({
     },
     registrationText: {
         textDecorationLine: 'underline',
+        fontWeight: 'bold'
+    },
+    errorContainer:{
+        flex: 1,
+        width: '95%',
+        paddingHorizontal: 15, 
+        height: 50, 
+        backgroundColor: 'red',
+        borderRadius: 10,
+        justifyContent: 'center',
+        textAlign: 'center',
+        flexDirection: 'column'
+    },
+    correctContainer:{
+        flex: 1,
+        width: '95%',
+        paddingHorizontal: 15, 
+        height: 50, 
+        backgroundColor: 'green',
+        borderRadius: 10,
+        justifyContent: 'center',
+        textAlign: 'center',
+        flexDirection: 'column'
+    },
+    textError:{
+        fontSize: 50,
+        color: 'white',
         fontWeight: 'bold'
     }
 })

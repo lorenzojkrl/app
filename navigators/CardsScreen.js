@@ -18,7 +18,7 @@ const CardsScreen = ({ navigation }) => {
 
   if (cards < 1) {
     return (
-      <ActivityIndicator size={150} color="red" />
+      <ActivityIndicator size={150} color="blue" style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}/>
     )
   } else {
     return (
@@ -62,4 +62,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     // backgroundColor: 'pink',
   },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10
+}
 })

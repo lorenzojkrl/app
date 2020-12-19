@@ -2,64 +2,63 @@ import React, { useRef, useEffect } from 'react'
 import { Animated, StyleSheet, View, Text } from 'react-native'
 import Button from './Button'
 import colors from '../config/colors'
-import spacer from '../config/spaces'
+import spaces from '../config/spaces'
 
 
-export default function Alert({
-  open,
-  onClose,
-  message = null, 
-  typology
-}) {
-  const animation = useRef(new Animated.Value(0)).current
+export default function Alert({ open, onClose, message = null, typology }) {
 
-  useEffect(() => {
-    Animated.timing(animation, {
-      toValue: open ? 1 : 0,
-      duration: 500,
-      useNativeDriver: true
-    }).start()
-  }, [open])
+  // const animation = useRef(new Animated.Value(0)).current
+
+  // useEffect(() => {
+  //   Animated.timing(animation, {
+  //     toValue: open ? 1 : 0,
+  //     duration: 500,
+  //     useNativeDriver: true
+  //   }).start()
+  // }, [open])
 
   let typologyContainerStyle = typology === "danger" ? styles.containerDanger : styles.containerSuccess
 
   return (
-    <Animated.View style={[styles.container, {
-      transform: [{
-        scale: animation.interpolate({
-          inputRange: [0, 1], 
-          outputRange: [0, 1] 
-        })
-      }],
-    }]}>
+    // <Animated.View style={[styles.container, {
+    //   transform: [{
+    //     scale: animation.interpolate({
+    //       inputRange: [0, 1], 
+    //       outputRange: [0, 1] 
+    //     })
+    //   }],
+    // }]}>
+    <>
       <View style={[styles.containerInternal, typologyContainerStyle]}>
         {
           message && <Text style={styles.message}>{message}</Text>
         }
 
-        {
-            onClose && ( 
+        
+            onClose&& ( 
             <Button 
                 style={styles.button} 
                 color={colors.black} 
-                onPress={onClose}>
-                Chiudi
+                onPress={onClose} 
+                name={"CHIUDI"}>                
             </Button>
-        )}
+        )
+        
       </View>
-    </Animated.View>
+      </>
+    // </Animated.View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingHorizontal: spacer.containerSpace,
+    paddingHorizontal: spaces.containerSpace,
     width: '100%',
     position: 'absolute',
     top: 0,
     left: 0,
     zIndex: 1,
-    paddingHorizontal: spacer.containerSpace,
+    paddingHorizontal: spaces.containerSpace,
     paddingTop: 10
   },
   containerInternal: {
@@ -73,13 +72,13 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   containerSuccess: {
-    backgroundColor: colors.green
+    backgroundColor: 'green'
   },
   containerDanger: {
-    backgroundColor: colors.red
+    backgroundColor: 'red'
   },
   message: {
-    color: colors.white,
+    color: 'red',
     fontWeight: 'bold',
     fontSize: 16,
     paddingRight: 15,
