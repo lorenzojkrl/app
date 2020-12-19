@@ -73,7 +73,7 @@ export default function Login({ navigation }) {
                         alignItems: 'center',
                     }}>
                         {
-                            error
+                            messageOpen
                                 ? <View style={styles.errorContainer}>
                                     <Text style={{}}>ATTENTION! {error}</Text>
                                 </View>

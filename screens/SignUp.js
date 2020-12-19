@@ -75,11 +75,9 @@ export default function SignUp({ navigation }) {
                 {
                     messageOpen
                         ? <View>
-                            <Text style={{ color: 'red' }}>ATTENTION! {error} {console.log(error)}</Text>
+                            <Text style={styles.textError}>ATTENTION! {error}</Text>
                         </View>
-                        : requiredInputs
-                            ? <Text style={{ color: 'green' }}>Credenziali Corrette</Text>
-                            : null
+                        : null
                 }
                 {/* <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} /> */}
                 <Title title={'Registrati'}></Title>
