@@ -1,5 +1,5 @@
 import React, { useState, useContext } from "react";
-import { View, StyleSheet, Text, TouchableOpacity, ScrollView } from 'react-native'
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView, TouchableHighlight } from 'react-native'
 
 import Title from '../components/Title'
 import Header from '../components/Header'
@@ -61,26 +61,20 @@ export default function Login({ navigation }) {
     return (
         <>
 
-            <ScrollView>
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                keyboardShouldPersistTaps="handled">
 
                 <View style={styles.loginSpace}>
                     <Header><Text>Nome App</Text></Header>
-                    <View style={{
-                        marginVertical: '5%',
-                        height: 100,
-                        width: "100%",
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                    }}>
-                        {
-                            messageOpen
-                                ? <View style={styles.errorContainer}>
-                                    <Text style={{}}>ATTENTION! {error}</Text>
-                                </View>
-                                : null
-                        }
-                    </View>
-
+                    <Spacer size={10} />
+                    {
+                        messageOpen
+                            ?<View style={styles.errorContainer}>
+                                <Text style={styles.textError}>ATTENTION! {error}</Text>
+                            </View>
+                            : null
+                    }
                     <Title title={'Accedi'}></Title>
                     <Form inputs={inputs} updateInputValue={setFormValue} />
                     <Button
@@ -93,9 +87,6 @@ export default function Login({ navigation }) {
                     <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
                         <Text style={styles.registrationText}>Registrati!</Text>
                     </TouchableOpacity>
-
-
-
                 </View>
             </ScrollView>
         </>
@@ -127,7 +118,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '95%',
         paddingHorizontal: 15,
-        height: 50,
+        height: 60,
         backgroundColor: 'green',
         borderRadius: 10,
         justifyContent: 'center',
@@ -135,8 +126,9 @@ const styles = StyleSheet.create({
         flexDirection: 'column'
     },
     textError: {
-        fontSize: 50,
+        fontSize: 15,
         color: 'white',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlign: 'center'
     }
 })

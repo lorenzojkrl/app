@@ -87,7 +87,9 @@ const ExchangeScreen = ({ navigation, route }) => {
   }
 
   return (
-    <ScrollView>
+    <ScrollView
+    showsVerticalScrollIndicator={false}
+    keyboardShouldPersistTaps="handled">
       <Header><Text >Nome App</Text></Header>
       <View style={styles.mainContainer}>
         <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>

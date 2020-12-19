@@ -39,7 +39,9 @@ const CardsScreen = () => {
 
   }
   return (
-    <ScrollView>
+    <ScrollView
+    showsVerticalScrollIndicator={false}
+    keyboardShouldPersistTaps="handled">
       <View style={styles.main}>
         <LoggedInHeader user={user} />
         <Title title={`${user.name + ' ' + user.surname} `} />

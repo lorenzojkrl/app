@@ -11,6 +11,7 @@ export default function Input({
   ...props
 }) {
   const [text, setText] = useState('')
+ 
 
   useEffect(() => {
     onTextChange(text)

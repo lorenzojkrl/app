@@ -12,6 +12,7 @@ const CardsScreen = ({ navigation }) => {
   const { user, getCards, cards } = useContext(AuthContext)
   const isFocused = useIsFocused()
   const [timer, setTimer] = useState(false)
+
   useEffect(() => {
     if (isFocused) {
       getCards()
@@ -48,7 +49,6 @@ const CardsScreen = ({ navigation }) => {
   } else {
     return (
       <>
-
 
         <LoggedInHeader user={user} />
         <SafeAreaView style={styles.container}>
@@ -95,6 +95,13 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     alignItems: 'center',
     // backgroundColor: 'pink',
+  },
+  input: {
+    height: 40,
+    borderColor: 'gray',
+    borderWidth: 1,
+    borderRadius: 10,
+    padding: 10
   },
   input: {
     height: 40,

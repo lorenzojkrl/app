@@ -51,6 +51,7 @@ export default function SignUp({ navigation }) {
                     console.log(errors);
                     setMessageOpen(true)
                 }
+                
             } catch (err) {
                 console.warn(err)
                 setError(err)
@@ -64,17 +65,21 @@ export default function SignUp({ navigation }) {
             setError(' Sono stati lascita dei campi vuoti. Inserire tutti i dati per procedere')
             setMessageOpen(true)
         }
+        
+        
 
     }
 
     return (
-        <ScrollView>
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+            keyboardShouldPersistTaps="handled">
             <View style={styles.loginSpace}>
                 <Header><Text>Nome App</Text></Header>
                 <Spacer size={10} />
                 {
-                    messageOpen
-                        ? <View>
+                    messageOpen 
+                        ? <View style={styles.errorContainer}>
                             <Text style={styles.textError}>ATTENTION! {error}</Text>
                         </View>
                         : null
@@ -86,7 +91,9 @@ export default function SignUp({ navigation }) {
                     <CheckBox
                         value={toggleCheckBox}
                         onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                        
                     />
+                    
                     <Text>Ho letto e accetto la normativa della Privacy</Text>
                 </Row>
 
@@ -109,8 +116,25 @@ const styles = StyleSheet.create({
     main: {
         backgroundColor: "#eaeaea"
     },
+    errorContainer: {
+        flex: 1,
+        width: '95%',
+        paddingHorizontal: 15,
+        height: 50,
+        backgroundColor: 'red',
+        borderRadius: 10,
+        justifyContent: 'center',
+        textAlign: 'center',
+        flexDirection: 'column',
+    },
     loginSpace: {
         flex: 1,
         alignItems: 'center',
+    },
+    textError: {
+        fontSize: 15,
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center'
     }
 })

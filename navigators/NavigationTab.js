@@ -6,11 +6,14 @@ import ProfileScreen from './ProfileScreen'
 import { FontAwesome } from '@expo/vector-icons';
 import CardsStackNav from './CardsStackNav'
 
+
 const Tab = createBottomTabNavigator();
 
 export default function App() {
     return (
+        <>
         <Tab.Navigator>
+       
             <Tab.Screen
                 name="Main"
                 component={Main}
@@ -26,5 +29,6 @@ export default function App() {
                 options={{ tabBarLabel: '', tabBarIcon: () => (<FontAwesome name="user" size={24} color="black" />), }} />
 
         </Tab.Navigator>
+        </>
     );
 }
