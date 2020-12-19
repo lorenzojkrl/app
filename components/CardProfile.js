@@ -3,6 +3,8 @@ import { Text, View, StyleSheet, TouchableOpacity, ScrollView, Image } from 'rea
 import Header from '../components/Header'
 import Title from '../components/Title'
 import Button from '../components/Button'
+import Spacer from '../components/Spacer'
+
 import { EvilIcons } from '@expo/vector-icons';
 
 const CardProfile = ({ navigation, route }) => {
@@ -17,21 +19,25 @@ const CardProfile = ({ navigation, route }) => {
 						<EvilIcons name="arrow-left" size={60} color="black" />
 					</TouchableOpacity>
 					<View style={styles.profileContainer}>
-						<Title title={name}></Title>
-						<Text style={styles.subTitle}>Code: {id}</Text>
-						<Text style={styles.subTitle}>Year: {created_at.slice(0, 4)}</Text>
-						<Text style={styles.subTitle}>Game: {game}</Text>
-						<Text style={styles.description}>{description.slice(1, -1)}</Text>
-						<View style={styles.img}>
-						<Image
-                    		style={styles.logoGame}
-                    		source={(game === "minecraft") 
-                            		? require('../assets/logo_minecraft.png') 
-                            		: (game === "pokemon") 
-                            		? require('../assets/logo_pokemon.png') 
-                            		: (game === "supermario") 
-									? require('../assets/logo_supermario.jpeg') 
-                            		: require('../assets/Guybrush_Threepwood.png')} />
+						<Text style={styles.title}>{name}</Text>
+
+						<View style={{ padding: 10 }}>
+							<Text style={styles.subTitle}>Code: {id}</Text>
+							<Text style={styles.subTitle}>Year: {created_at.slice(0, 4)}</Text>
+							<Text style={styles.subTitle}>Game: {game}</Text>
+							<Text style={styles.description}>{description.slice(1, -1)}</Text>
+							<View style={styles.img}>
+							</View>
+
+							<Image
+								style={styles.logoGame}
+								source={(game === "minecraft")
+									? require('../assets/logo_minecraft.png')
+									: (game === "pokemon")
+										? require('../assets/logo_pokemon.png')
+										: (game === "supermario")
+											? require('../assets/logo_supermario.jpeg')
+											: require('../assets/Guybrush_Threepwood.png')} />
 						</View>
 						<View style={{ alignSelf: 'center' }}>
 							<Button name={'TRASFERISCI'} submit={() => navigation.navigate('ExchangeScreen', route)} ></Button>
@@ -40,6 +46,8 @@ const CardProfile = ({ navigation, route }) => {
 					</View>
 
 				</View>
+				<Spacer size={10} />
+
 			</ScrollView>
 		</>
 	);
@@ -58,16 +66,26 @@ const styles = StyleSheet.create({
 		height: 100,
 		width: '85%',
 		justifyContent: 'center',
-		borderWidth: 1,
-		borderColor: 'red',
+		/* 		borderWidth: 1,
+				borderColor: 'red', */
 	},
 	profileContainer: {
 		flex: 1,
 		width: '80%',
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
-		borderWidth: 1,
-		borderColor: 'red'
+		backgroundColor: 'white',
+		borderRadius: 10,
+		overflow: 'hidden',
+		/* 		borderWidth: 1,
+				borderColor: 'red' */
+	},
+	title: {
+		width: '100%',
+		padding: 10,
+		fontSize: 24,
+		color: 'white',
+		backgroundColor: 'orange',
 	},
 	subTitle: {
 		fontSize: 15,
