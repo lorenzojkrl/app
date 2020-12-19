@@ -89,7 +89,7 @@ export default function Main() {
               <Text style={styles.infoBoxNumberT}>{counter || 0}</Text>
             </View>
             <View style={styles.infoBoxText}>
-              <Text style={styles.infoBoxTextT}>Carte scambiate</Text>
+              <Text style={styles.infoBoxTextT}>Transazioni oggi</Text>
             </View>
           </View>
         </View>
