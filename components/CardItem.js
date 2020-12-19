@@ -4,8 +4,7 @@ import { EvilIcons } from '@expo/vector-icons';
 // import { rootNavigation } from '../utility/navigation.js'
 
 const CardItem = ({ data }) => {
-    const { description, game, id, name } = data;
-    const myScreenW = Dimensions.get('window').width;
+    const { game, name } = data;
     return (
 
 
@@ -76,7 +75,7 @@ const styles = StyleSheet.create({
         // borderColor: 'red',
         justifyContent: 'center',
         alignItems: 'center',
-        paddingRight: 30,
+        paddingRight: 20,
 
     },
     logoGame: {

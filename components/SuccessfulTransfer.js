@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, ScrollView, StyleSheet } from 'react-native';
 
 import { AuthContext } from '../context/AuthContext'
 import { AntDesign } from '@expo/vector-icons';
@@ -12,24 +12,27 @@ import Spacer from '../components/Spacer'
 const SuccessfulTransfer = ({ navigation }) => {
     const { user } = useContext(AuthContext)
     return (
-        <View style={styles.main}>
+        <ScrollView>
+            <View style={styles.main}>
 
-            <LoggedInHeader user={user} />
-            <Spacer size="20" />
-            <Text style={styles.text}>
-                Trasferimento avvenuto con successo
-                  </Text>
+                <LoggedInHeader user={user} />
+                <Spacer size="20" />
+                <Text style={styles.text}>
+                    Trasferimento avvenuto con successo
+                </Text>
 
-            <View style={styles.check}>
-                <AntDesign name="checkcircleo" size={100} color="#999" />
+                <View style={styles.check}>
+                    <AntDesign name="checkcircleo" size={100} color="#28B463" />
+                </View>
+
+                <Button
+                    name={'TORNA ALLA LISTA'}
+                    submit={() => navigation.navigate('CardsScreen')}
+                />
+
             </View>
+        </ScrollView>
 
-            <Button
-                name={'TORNA ALLA LISTA'}
-                submit={() => navigation.navigate('CardsScreen')}
-            />
-
-        </View>
     );
 };
 export default SuccessfulTransfer;
@@ -52,7 +55,7 @@ const styles = StyleSheet.create({
         width: 200,
         height: 200,
         borderRadius: 20,
-        borderColor: '#28B463',
+        borderColor: '#999',
         borderWidth: 2,
         marginTop: 40,
         marginBottom: 25,

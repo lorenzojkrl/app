@@ -8,6 +8,7 @@ import { AuthContext } from '../context/AuthContext'
 import { EvilIcons } from '@expo/vector-icons';
 import Title from '../components/Title'
 import Button from '../components/Button'
+import Spacer from '../components/Spacer'
 import { ScrollView } from 'react-native-gesture-handler';
 
 
@@ -67,6 +68,7 @@ const CardsScreen = () => {
             : <Text></Text>
         }
       </View>
+      <Spacer size={10} />
     </ScrollView>
   );
 };
