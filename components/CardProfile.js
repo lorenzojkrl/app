@@ -23,7 +23,6 @@ const CardProfile = ({ navigation, route }) => {
 						<Text style={styles.subTitle}>Game: {game}</Text>
 						<Text style={styles.description}>{description.slice(1, -1)}</Text>
 						<View style={styles.img}>
-<<<<<<< HEAD
 						<Image
                     		style={styles.logoGame}
                     		source={(game === "minecraft") 
@@ -33,16 +32,6 @@ const CardProfile = ({ navigation, route }) => {
                             		: (game === "supermario") 
 									? require('../assets/logo_supermario.jpeg') 
                             		: require('../assets/Guybrush_Threepwood.png')} />
-=======
-							<Image
-								style={styles.logoGame}
-								source={(game === "minecraft")
-									? require('../assets/logo_minecraft.png')
-									: (game === "pokemon")
-										? require('../assets/logo_pokemon.png')
-										: (game === "supermario") ? require('../assets/logo_supermario.jpeg')
-											: null} />
->>>>>>> 6d0910c0305aacb0c5be16cc480ff8a9a7ce492c
 						</View>
 						<View style={{ alignSelf: 'center' }}>
 							<Button name={'TRASFERISCI'} submit={() => navigation.navigate('ExchangeScreen', route)} ></Button>
