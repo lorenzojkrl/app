@@ -67,11 +67,11 @@ export default function Login({ navigation }) {
 
                 <View style={styles.loginSpace}>
                     <Header><Text>Nome App</Text></Header>
-                    <Spacer size={10} />
+                    <Spacer size={5} />
                     {
                         error
                             ?<View style={styles.errorContainer}>
-                                <Text style={{}}>ATTENTION! {error}</Text>
+                                <Text style={styles.textError}>ATTENTION! {error}</Text>
                             </View>
                             : null
                     }
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '95%',
         paddingHorizontal: 15,
-        height: 50,
+        height: 60,
         backgroundColor: 'green',
         borderRadius: 10,
         justifyContent: 'center',
@@ -129,8 +129,9 @@ const styles = StyleSheet.create({
         flexDirection: 'column'
     },
     textError: {
-        fontSize: 50,
+        fontSize: 15,
         color: 'white',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlign: 'center'
     }
 })
