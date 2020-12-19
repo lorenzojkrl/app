@@ -67,9 +67,9 @@ export default function Login({ navigation }) {
 
                 <View style={styles.loginSpace}>
                     <Header><Text>Nome App</Text></Header>
-                    <Spacer size={5} />
+                    <Spacer size={10} />
                     {
-                        error
+                        messageOpen
                             ?<View style={styles.errorContainer}>
                                 <Text style={styles.textError}>ATTENTION! {error}</Text>
                             </View>
@@ -87,9 +87,6 @@ export default function Login({ navigation }) {
                     <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
                         <Text style={styles.registrationText}>Registrati!</Text>
                     </TouchableOpacity>
-
-
-
                 </View>
             </ScrollView>
         </>

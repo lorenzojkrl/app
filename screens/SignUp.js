@@ -6,7 +6,6 @@ import Header from '../components/Header'
 import Row from '../components/Row'
 import Button from '../components/Button'
 import Spacer from '../components/Spacer'
-import { StatusBar } from 'expo-status-bar';
 
 import Form from '../components/Form'
 import useForm from '../hooks/useForm'
@@ -52,6 +51,7 @@ export default function SignUp({ navigation }) {
                     console.log(errors);
                     setMessageOpen(true)
                 }
+                
             } catch (err) {
                 console.warn(err)
                 setError(err)
@@ -65,6 +65,8 @@ export default function SignUp({ navigation }) {
             setError(' Sono stati lascita dei campi vuoti. Inserire tutti i dati per procedere')
             setMessageOpen(true)
         }
+        
+        
 
     }
 
@@ -76,13 +78,11 @@ export default function SignUp({ navigation }) {
                 <Header><Text>Nome App</Text></Header>
                 <Spacer size={10} />
                 {
-                    messageOpen
-                        ? <View>
-                            <Text style={{ color: 'red' }}>ATTENTION! {error} {console.log(error)}</Text>
+                    messageOpen 
+                        ? <View style={styles.errorContainer}>
+                            <Text style={styles.textError}>ATTENTION! {error}</Text>
                         </View>
-                        : requiredInputs
-                            ? <Text style={{ color: 'green' }}>Credenziali Corrette</Text>
-                            : null
+                        : null
                 }
                 {/* <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} /> */}
                 <Title title={'Registrati'}></Title>
@@ -91,7 +91,9 @@ export default function SignUp({ navigation }) {
                     <CheckBox
                         value={toggleCheckBox}
                         onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                        
                     />
+                    
                     <Text>Ho letto e accetto la normativa della Privacy</Text>
                 </Row>
 
@@ -128,5 +130,11 @@ const styles = StyleSheet.create({
     loginSpace: {
         flex: 1,
         alignItems: 'center',
+    },
+    textError: {
+        fontSize: 15,
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center'
     }
 })
