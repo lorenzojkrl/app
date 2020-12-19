@@ -7,6 +7,7 @@ import { EvilIcons } from '@expo/vector-icons';
 
 const CardProfile = ({ navigation, route }) => {
 	const { created_at, description, game, id, name, updatet_at, user_uuid } = route.params;
+
 	return (
 		<>
 			<ScrollView>
@@ -57,14 +58,16 @@ const styles = StyleSheet.create({
 		height: 100,
 		width: '85%',
 		justifyContent: 'center',
-		
+		borderWidth: 1,
+		borderColor: 'red',
 	},
 	profileContainer: {
 		flex: 1,
 		width: '80%',
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
-		
+		borderWidth: 1,
+		borderColor: 'red'
 	},
 	subTitle: {
 		fontSize: 15,
@@ -84,8 +87,8 @@ const styles = StyleSheet.create({
 	},
 	logoGame: {
 		width: 95,
-        height: 95,
-        justifyContent: 'center',
-        alignItems: 'center'
+		height: 95,
+		justifyContent: 'center',
+		alignItems: 'center'
 	}
 })
