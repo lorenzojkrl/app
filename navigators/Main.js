@@ -6,6 +6,7 @@ import Button from '../components/Button'
 import api from '../utility/api'
 import { EvilIcons } from '@expo/vector-icons';
 import { AuthContext } from '../context/AuthContext'
+import { Ionicons } from '@expo/vector-icons';
 
 import LoggedInHeader from '../components/LoggedInHeader'
 import { useIsFocused } from "@react-navigation/native"
@@ -94,7 +95,9 @@ export default function Main() {
         </View>
         <Button
           name={"LOG OUT"}
-          submit={onLogout} />
+          submit={onLogout}
+          icon={<Ionicons name="exit-outline" size={30} color="white" />}
+        />
       </View>
     </ScrollView>
   )

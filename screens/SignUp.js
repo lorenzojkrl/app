@@ -64,7 +64,16 @@ export default function SignUp({ navigation }) {
             <View style={styles.loginSpace}>
                 <Header><Text>Nome App</Text></Header>
                 <Spacer size={10} />
-                <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} />
+                {
+                       messageOpen
+                       ?<View>
+                            <Text style={{color: 'red'}}>ATTENTION! {error} {console.log(error)}</Text>
+                       </View>
+                       : requiredInputs
+                       ? <Text style={{color: 'green'}}>Credenziali Corrette</Text>
+                       : null
+                    }
+                {/* <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} /> */}
                 <Title title={'Registrati'}></Title>
                 <Form inputs={inputs} updateInputValue={setFormValue} />
                 <Row>

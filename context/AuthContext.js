@@ -13,6 +13,9 @@ export default function AuthProvider({ children }) {
     const [counter, setCounter] = useState()
     const [cards, setCards] = useState([])
 
+    const [error, setError] = useState(false)
+    const [messageOpen, setMessageOpen] = useState(false)
+
     const manageUserData = useCallback(async (userData) => {
         // console.log('userData in manageuserData', userData)
         setUser(userData.user)
@@ -29,15 +32,14 @@ export default function AuthProvider({ children }) {
             if (result) {
                 // console.log('payload--------------------', payload.cards)
                 setCards(payload.cards)
+            }else {
+                 setError(errors[0].message)
+                 setMessageOpen(true)
             }
-            // else {
-            //     setError(errors[0].message)
-            //     setMessageOpen(true)
-            // }
         } catch (err) {
             console.warn(err)
-            // setError(err)
-            // setMessageOpen(true)
+            setError(err)
+            setMessageOpen(true)
         }
     }, [])
 
@@ -68,7 +70,9 @@ export default function AuthProvider({ children }) {
             user, manageUserData,
             onLogout,
             transferCounter, counter,
-            getCards, cards
+            getCards, cards,
+            setMessageOpen, messageOpen,
+            setError, error
         }}>
             {children}
         </AuthContext.Provider>

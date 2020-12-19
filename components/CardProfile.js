@@ -30,7 +30,7 @@ const CardProfile = ({ navigation, route }) => {
                             		? require('../assets/logo_pokemon.png') 
                             		: (game === "supermario") 
 									? require('../assets/logo_supermario.jpeg') 
-                            		: null} />
+                            		: require('../assets/Guybrush_Threepwood.png')} />
 						</View>
 						<View style={{ alignSelf: 'center' }}>
 							<Button name={'TRASFERISCI'} submit={() => navigation.navigate('ExchangeScreen', route)} ></Button>
