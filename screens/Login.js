@@ -60,19 +60,27 @@ export default function Login({ navigation }) {
 
     return (
         <>
-         
+
             <ScrollView>
-         
+
                 <View style={styles.loginSpace}>
                     <Header><Text>Nome App</Text></Header>
-                    <Spacer size={30} />
-                    {
-                       error
-                       ?<View style={styles.errorContainer}>
-                            <Text style={{}}>ATTENTION! {error}</Text>
-                       </View>
-                       : null
-                    }
+                    <View style={{
+                        marginVertical: '5%',
+                        height: 100,
+                        width: "100%",
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                    }}>
+                        {
+                            error
+                                ? <View style={styles.errorContainer}>
+                                    <Text style={{}}>ATTENTION! {error}</Text>
+                                </View>
+                                : null
+                        }
+                    </View>
+
                     <Title title={'Accedi'}></Title>
                     <Form inputs={inputs} updateInputValue={setFormValue} />
                     <Button
@@ -85,9 +93,9 @@ export default function Login({ navigation }) {
                     <TouchableOpacity onPress={() => navigation.navigate('SignUp')} >
                         <Text style={styles.registrationText}>Registrati!</Text>
                     </TouchableOpacity>
-                  
-                        
-                   
+
+
+
                 </View>
             </ScrollView>
         </>
@@ -104,29 +112,29 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         fontWeight: 'bold'
     },
-    errorContainer:{
+    errorContainer: {
         flex: 1,
         width: '95%',
-        paddingHorizontal: 15, 
-        height: 50, 
+        paddingHorizontal: 15,
+        height: 50,
         backgroundColor: 'red',
         borderRadius: 10,
         justifyContent: 'center',
         textAlign: 'center',
         flexDirection: 'column'
     },
-    correctContainer:{
+    correctContainer: {
         flex: 1,
         width: '95%',
-        paddingHorizontal: 15, 
-        height: 50, 
+        paddingHorizontal: 15,
+        height: 50,
         backgroundColor: 'green',
         borderRadius: 10,
         justifyContent: 'center',
         textAlign: 'center',
         flexDirection: 'column'
     },
-    textError:{
+    textError: {
         fontSize: 50,
         color: 'white',
         fontWeight: 'bold'

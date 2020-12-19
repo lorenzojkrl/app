@@ -3,13 +3,15 @@ import { View, StyleSheet, FlatList, TouchableOpacity, SafeAreaView, StatusBar, 
 import LoggedInHeader from '../components/LoggedInHeader'
 import { AuthContext } from '../context/AuthContext'
 import Title from '../components/Title'
+import Button from '../components/Button'
 import CardItem from '../components/CardItem'
 import { useIsFocused } from "@react-navigation/native"
+
 
 const CardsScreen = ({ navigation }) => {
   const { user, getCards, cards } = useContext(AuthContext)
   const isFocused = useIsFocused()
-
+  const [timer, setTimer] = useState(false)
   useEffect(() => {
     if (isFocused) {
       getCards()
@@ -17,31 +19,62 @@ const CardsScreen = ({ navigation }) => {
   }, [isFocused])
 
   if (cards < 1) {
-    return (
-      <ActivityIndicator size={150} color="blue" style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}/>
-    )
+    setTimeout(() => { setTimer(true) }, 3000)
+
+    if (!timer) {
+      return (
+        <>
+          <ActivityIndicator size={150} color="blue" style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }} />
+        </>
+      )
+    } else {
+      return (
+        <>
+          <LoggedInHeader user={user} />
+          <View style={styles.main}>
+            <Title title={`NON CI SONO CARTE`} />
+            <Button
+              name={'TORNA ALLA SCHERMATA PRINCIPALE'}
+              submit={() => navigation.navigate('Main')
+              }
+            />
+          </View>
+        </>
+      )
+    }
+
+
+
   } else {
     return (
-      <SafeAreaView style={styles.container}>
+      <>
+
+
         <LoggedInHeader user={user} />
+        <SafeAreaView style={styles.container}>
 
-        <View style={styles.main}>
-          <Title title={`Le mie Carte`} />
-          <FlatList
-            data={cards}
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                onPress={() => navigation.navigate('CardProfile', item)}
-              >
-                <CardItem data={item} />
-              </TouchableOpacity>
+          <View style={styles.main}>
+            <Title title={`Le mie Carte`} />
+            <FlatList
+              style={{
+                width: '100%'
+              }}
+              data={cards}
+              renderItem={({ item }) => (
+                <TouchableOpacity
+                  onPress={() => navigation.navigate('CardProfile', item)}
+                >
+                  <CardItem data={item} />
+                </TouchableOpacity>
 
-            )}
-            keyExtractor={item => JSON.stringify(item.id)}
-          />
-        </View>
-      </SafeAreaView>
+              )}
+              keyExtractor={item => JSON.stringify(item.id)}
+            />
+          </View>
+        </SafeAreaView>
+      </>
     );
+
   }
 
 };
@@ -51,6 +84,7 @@ export default CardsScreen;
 const styles = StyleSheet.create({
 
   container: {
+    width: '100%',
     flex: 1,
     alignItems: 'center',
     marginTop: StatusBar.currentHeight || 0,
@@ -68,5 +102,5 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 10,
     padding: 10
-}
+  }
 })

@@ -35,28 +35,36 @@ export default function SignUp({ navigation }) {
 
 
     const submitSignup = async () => {
-        try {
-            setLoading(true)
-            const response = await api.post('authentication/signup-action', formData.values)
-            const { result, errors, payload } = response
-            // console.log(response)
+        if (formData.valid) {
+            try {
+                setLoading(true)
+                const response = await api.post('authentication/signup-action', formData.values)
+                const { result, errors, payload } = response
+                // console.log(response)
 
-            if (result) {
-                manageUserData(payload)
-                // rootNavigation.current.navigate('Greeting')
-                navigation.navigate('Greeting')
-            } else {
-                setError(errors[0].message)
+                if (result) {
+                    // manageUserData(payload)
+                    // rootNavigation.current.navigate('Greeting')
+                    navigation.navigate('Greeting')
+                } else {
+                    setError(errors[0].message)
+                    console.log(errors);
+                    setMessageOpen(true)
+                }
+            } catch (err) {
+                console.warn(err)
+                setError(err)
                 setMessageOpen(true)
-            }
-        } catch (err) {
-            console.warn(err)
-            setError(err)
-            setMessageOpen(true)
 
-        } finally {
-            setLoading(false)
+            } finally {
+                setLoading(false)
+            }
         }
+        else {
+            setError(' Sono stati lascita dei campi vuoti. Inserire tutti i dati per procedere')
+            setMessageOpen(true)
+        }
+
     }
 
     return (
@@ -65,14 +73,14 @@ export default function SignUp({ navigation }) {
                 <Header><Text>Nome App</Text></Header>
                 <Spacer size={10} />
                 {
-                       messageOpen
-                       ?<View>
-                            <Text style={{color: 'red'}}>ATTENTION! {error} {console.log(error)}</Text>
-                       </View>
-                       : requiredInputs
-                       ? <Text style={{color: 'green'}}>Credenziali Corrette</Text>
-                       : null
-                    }
+                    messageOpen
+                        ? <View>
+                            <Text style={{ color: 'red' }}>ATTENTION! {error} {console.log(error)}</Text>
+                        </View>
+                        : requiredInputs
+                            ? <Text style={{ color: 'green' }}>Credenziali Corrette</Text>
+                            : null
+                }
                 {/* <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} /> */}
                 <Title title={'Registrati'}></Title>
                 <Form inputs={inputs} updateInputValue={setFormValue} />
@@ -87,7 +95,7 @@ export default function SignUp({ navigation }) {
                 <TouchableOpacity>
                     <Button
                         name={'ISCRIVITI'}
-                        disabled={loading || !formData.valid}
+                        disabled={loading}
                         // disabled={true}
                         submit={submitSignup}
                     />
