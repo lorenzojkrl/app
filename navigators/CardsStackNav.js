@@ -11,6 +11,7 @@ const CardsStackNav = () => {
 
 
     return (
+        <>
         <CardsStack.Navigator
             initialRouteName={"CardsScreen"}
             screenOptions={{
@@ -23,6 +24,7 @@ const CardsStackNav = () => {
             <CardsStack.Screen name="ExchangeScreen" component={ExchangeScreen} />
             <CardsStack.Screen name="SuccessfulTransfer" component={SuccessfulTransfer} />
         </CardsStack.Navigator>
+        </>
     )
 };
 

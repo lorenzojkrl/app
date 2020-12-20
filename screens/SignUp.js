@@ -39,13 +39,18 @@ export default function SignUp() {
             const { result, errors, payload } = response
             console.log(response)
 
+
             if (result) {
-                manageUserData(payload)
-                rootNavigation.current.navigate('Main')
+
+                // manageUserData(payload)
+                // rootNavigation.current.navigate('Greeting')
+                navigation.navigate('Greeting')
             } else {
                 setError(errors[0].message)
+                console.log(errors);
                 setMessageOpen(true)
             }
+
         } catch (err) {
             console.warn(err)
             setError(err)
@@ -57,27 +62,39 @@ export default function SignUp() {
     }
 
     return (
-        <ScrollView>
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+            keyboardShouldPersistTaps="handled">
             <View style={styles.loginSpace}>
                 <Header />
                 <Spacer size={10} />
-                <Title title={'Registrati'}></Title>
-                <Form inputs={inputs} updateInputValue={setFormValue} />
-                <Row>
-                    <CheckBox
-                        value={toggleCheckBox}
-                        onValueChange={(newValue) => setToggleCheckBox(newValue)}
-                    />
-                    <Text>Ho letto e accetto la normativa della Privacy</Text>
-                </Row>
-                <Button
-                    name={'ISCRIVITI'}
-                    disabled={loading || !formData.valid}
-                    // disabled={true}
-                    submit={submitSignup}
+                {
+                messageOpen
+                    ? <View style={styles.errorContainer}>
+                        <Text style={styles.textError}>ATTENTION! {error}</Text>
+                    </View>
+                    : null
+            }
+            {/* <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} /> */}
+            <Title title={'Registrati'}></Title>
+            <Form inputs={inputs} updateInputValue={setFormValue} />
+            <Row>
+                <CheckBox
+                    value={toggleCheckBox}
+                    onValueChange={(newValue) => setToggleCheckBox(newValue)}
+
                 />
+
+                <Text>Ho letto e accetto la normativa della Privacy</Text>
+            </Row>
+            <Button
+                name={'ISCRIVITI'}
+                disabled={loading || !formData.valid}
+                // disabled={true}
+                submit={submitSignup}
+            />
             </View>
-        </ScrollView>
+        </ScrollView >
 
     )
 }
@@ -86,8 +103,25 @@ const styles = StyleSheet.create({
     main: {
         backgroundColor: "#eaeaea"
     },
+    errorContainer: {
+        flex: 1,
+        width: '95%',
+        paddingHorizontal: 15,
+        height: 50,
+        backgroundColor: 'red',
+        borderRadius: 10,
+        justifyContent: 'center',
+        textAlign: 'center',
+        flexDirection: 'column',
+    },
     loginSpace: {
         flex: 1,
         alignItems: 'center',
+    },
+    textError: {
+        fontSize: 15,
+        color: 'white',
+        fontWeight: 'bold',
+        textAlign: 'center'
     }
 })

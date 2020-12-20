@@ -8,6 +8,8 @@ import { EvilIcons } from '@expo/vector-icons';
 import { AuthContext } from '../context/AuthContext'
 import { Ionicons } from '@expo/vector-icons';
 
+import { StatusBar } from 'expo-status-bar';
+
 import LoggedInHeader from '../components/LoggedInHeader'
 import { useIsFocused } from "@react-navigation/native"
 
@@ -60,7 +62,10 @@ export default function Main() {
   }, [isFocused])
 
   return (
-    <ScrollView>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      keyboardShouldPersistTaps="handled">
+      <StatusBar style="white" />
       <View style={styles.mainContainer}>
         <LoggedInHeader user={user} />
 

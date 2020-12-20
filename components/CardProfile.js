@@ -18,7 +18,9 @@ const CardProfile = ({ navigation, route }) => {
 
 	return (
 		<>
-			<ScrollView>
+			<ScrollView
+			showsVerticalScrollIndicator={false}
+			keyboardShouldPersistTaps="handled" >
 				<LoggedInHeader user={user} />
 
 				<View style={styles.mainContainer}>

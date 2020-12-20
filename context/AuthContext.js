@@ -71,8 +71,6 @@ export default function AuthProvider({ children }) {
             onLogout,
             transferCounter, counter,
             getCards, cards,
-            setMessageOpen, messageOpen,
-            setError, error
         }}>
             {children}
         </AuthContext.Provider>

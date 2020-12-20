@@ -88,9 +88,11 @@ const ExchangeScreen = ({ navigation, route }) => {
   }
 
   return (
-    <ScrollView>
-      <LoggedInHeader user={user} />
 
+    <ScrollView
+    showsVerticalScrollIndicator={false}
+    keyboardShouldPersistTaps="handled">
+      <LoggedInHeader user={user} />
       <View style={styles.mainContainer}>
         <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
           <EvilIcons name="arrow-left" size={60} color="black" />
