@@ -3,14 +3,14 @@ import { View, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } from 
 import { AuthContext } from '../context/AuthContext'
 import { useIsFocused } from "@react-navigation/native"
 
-import Header from '../components/Header'
+import Spacer from '../components/Spacer'
 import Title from '../components/Title'
 import Button from '../components/Button'
 import CardItem from '../components/CardItem'
 
 
 const CardsScreen = ({ navigation }) => {
-  const { user, getCards, cards } = useContext(AuthContext)
+  const { getCards, cards } = useContext(AuthContext)
   const isFocused = useIsFocused()
   const [timer, setTimer] = useState(false)
 
@@ -32,7 +32,6 @@ const CardsScreen = ({ navigation }) => {
     } else {
       return (
         <>
-          <Header user={user.name} />
           <View style={styles.main}>
             <Title title={`NON CI SONO CARTE`} />
             <Button
@@ -49,10 +48,11 @@ const CardsScreen = ({ navigation }) => {
     return (
       <>
 
-        <Header user={user.name} />
         <View style={styles.container}>
 
           <View style={styles.main}>
+            <Spacer size={2} />
+
             <Title title={`Le mie Carte`} />
             <FlatList
               style={{

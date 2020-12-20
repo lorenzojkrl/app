@@ -3,11 +3,8 @@ import { AuthContext } from '../context/AuthContext'
 import { View, Text, StyleSheet } from 'react-native'
 import { EvilIcons } from '@expo/vector-icons';
 
-import Spacer from '../components/Spacer'
-
-
-export default function Header({ user }) {
-    const { token } = useContext(AuthContext)
+export default function Header() {
+    const { token, user } = useContext(AuthContext)
 
     return (<>
 
@@ -27,7 +24,7 @@ export default function Header({ user }) {
                     </Text>
                     <View style={styles.childrenView}>
                         <Text style={styles.userText} >
-                            {user}
+                            {user.surname}
                         </Text>
                         <EvilIcons name="user" size={50} color="yellow" />
                     </View>
@@ -43,7 +40,6 @@ const styles = StyleSheet.create({
         width: '100%',
         height: 80,
         paddingBottom: 5,
-        marginBottom: 20,
 
         flexDirection: 'row',
         alignItems: 'flex-end',
@@ -69,7 +65,7 @@ const styles = StyleSheet.create({
     userText: {
         color: 'orange',
         fontSize: 16,
-        paddingRight:7,
+        paddingRight: 7,
     },
 
 

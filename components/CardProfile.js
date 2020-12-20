@@ -1,24 +1,20 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native'
-import { AuthContext } from '../context/AuthContext'
 
 import { EvilIcons } from '@expo/vector-icons';
 
-import Header from '../components/Header'
 import Button from '../components/Button'
 import Spacer from '../components/Spacer'
 
 
 const CardProfile = ({ navigation, route }) => {
 	const { created_at, description, game, id, name, updatet_at, user_uuid } = route.params;
-    const { user } = useContext(AuthContext)
 
 	return (
 		<>
 			<ScrollView
 			showsVerticalScrollIndicator={false}
 			keyboardShouldPersistTaps="handled" >
-				<Header user={user.name} />
 				<View style={styles.mainContainer}>
 					<TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
 						<EvilIcons name="arrow-left" size={60} color="black" />

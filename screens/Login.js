@@ -4,7 +4,6 @@ import { AuthContext } from '../context/AuthContext'
 import { rootNavigation } from '../utility/navigation.js'
 
 import Title from '../components/Title'
-import Header from '../components/Header'
 import Spacer from '../components/Spacer'
 import Button from '../components/Button'
 // import Alert2 from '../components/Alert2'
@@ -66,7 +65,6 @@ export default function Login({ navigation }) {
                 keyboardShouldPersistTaps="handled">
 
                 <View style={styles.loginSpace}>
-                    <Header/>
                     <Spacer size={10} />
                     {
                         messageOpen

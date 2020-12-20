@@ -8,7 +8,6 @@ import { EvilIcons } from '@expo/vector-icons';
 
 import api from '../utility/api'
 
-import Header from '../components/Header'
 import Title from '../components/Title'
 import Button from '../components/Button'
 import Spacer from '../components/Spacer'
@@ -41,10 +40,11 @@ const CardsScreen = () => {
   }
   return (
     <ScrollView
-    showsVerticalScrollIndicator={false}
-    keyboardShouldPersistTaps="handled">
+      showsVerticalScrollIndicator={false}
+      keyboardShouldPersistTaps="handled">
       <View style={styles.main}>
-      <Header user={user.name} />
+        <Spacer size={2} />
+
         <Title title={`${user.name + ' ' + user.surname} `} />
         < EvilIcons name="user" size={150} color="black" />
         <Text style={styles.paragraph}>Email: {user.email}</Text>

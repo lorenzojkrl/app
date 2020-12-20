@@ -8,7 +8,6 @@ import { AuthContext } from '../context/AuthContext'
 
 import api from '../utility/api'
 
-import Header from '../components/Header'
 import Title from '../components/Title'
 import Button from '../components/Button'
 
@@ -21,7 +20,7 @@ const ExchangeScreen = ({ navigation, route }) => {
   const [qrData, setQrData] = useState(''); // qrData = portfolio code
   const [error, setError] = useState(false)
   const [messageOpen, setMessageOpen] = useState(false)
-  const { transferCounter, counter, user } = useContext(AuthContext)
+  const { transferCounter, counter } = useContext(AuthContext)
 
   //Costanti per la dimensione del BarCodeScanner
   const myScreenW = Dimensions.get('window').width;
@@ -84,7 +83,6 @@ const ExchangeScreen = ({ navigation, route }) => {
     <ScrollView
     showsVerticalScrollIndicator={false}
     keyboardShouldPersistTaps="handled">
-      <Header user={user.name} />
       <View style={styles.mainContainer}>
         <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
           <EvilIcons name="arrow-left" size={60} color="black" />
