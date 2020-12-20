@@ -8,7 +8,7 @@ import { useIsFocused } from "@react-navigation/native"
 
 import Title from '../components/Title'
 import Button from '../components/Button'
-import LoggedInHeader from '../components/LoggedInHeader'
+import Header from '../components/Header'
 
 // usare createBottommTabNavigator: https://reactnavigation.org/docs/bottom-tab-navigator/
 export default function Main() {
@@ -63,7 +63,7 @@ export default function Main() {
       showsVerticalScrollIndicator={false}
       keyboardShouldPersistTaps="handled">
       <View style={styles.mainContainer}>
-        <LoggedInHeader user={user} />
+        <Header user={user.name} />
 
         <Title title={'BENVEnuto'} />
         <Title title={`${user.name + ' ' + user.surname} `} />

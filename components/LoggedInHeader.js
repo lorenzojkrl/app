@@ -9,7 +9,6 @@ const LoggedInHeader = ({ user }) => {
     return (
         <>
             <Header>
-                <Text>Nome Main  </Text>
                 <Text>{user.name}</Text>
                 <EvilIcons name="user" size={50} color="yellow" />
             </Header>
