@@ -7,7 +7,7 @@ export default function App() {
   return (
     <Providers>
       <Screens />
-      <StatusBar style="light-content" />
+      <StatusBar style="white" />
     </Providers>
   )
 }

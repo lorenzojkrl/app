@@ -91,7 +91,6 @@ export default function SignUp({ navigation }) {
                     <CheckBox
                         value={toggleCheckBox}
                         onValueChange={(newValue) => setToggleCheckBox(newValue)}
-                        
                     />
                     
                     <Text>Ho letto e accetto la normativa della Privacy</Text>
