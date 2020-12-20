@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { View, StyleSheet, FlatList, TouchableOpacity, SafeAreaView, StatusBar, ActivityIndicator } from 'react-native';
-import LoggedInHeader from '../components/LoggedInHeader'
+import { View, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { AuthContext } from '../context/AuthContext'
+import { useIsFocused } from "@react-navigation/native"
+
+import Spacer from '../components/Spacer'
 import Title from '../components/Title'
 import Button from '../components/Button'
 import CardItem from '../components/CardItem'
-import { useIsFocused } from "@react-navigation/native"
 
 
 const CardsScreen = ({ navigation }) => {
-  const { user, getCards, cards } = useContext(AuthContext)
+  const { getCards, cards } = useContext(AuthContext)
   const isFocused = useIsFocused()
   const [timer, setTimer] = useState(false)
 
@@ -31,7 +32,6 @@ const CardsScreen = ({ navigation }) => {
     } else {
       return (
         <>
-          <LoggedInHeader user={user} />
           <View style={styles.main}>
             <Title title={`NON CI SONO CARTE`} />
             <Button
@@ -44,16 +44,15 @@ const CardsScreen = ({ navigation }) => {
       )
     }
 
-
-
   } else {
     return (
       <>
 
-        <LoggedInHeader user={user} />
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
 
           <View style={styles.main}>
+            <Spacer size={2} />
+
             <Title title={`Le mie Carte`} />
             <FlatList
               style={{
@@ -71,15 +70,15 @@ const CardsScreen = ({ navigation }) => {
               keyExtractor={item => JSON.stringify(item.id)}
             />
           </View>
-        </SafeAreaView>
+        </View>
       </>
     );
 
   }
 
 };
-
 export default CardsScreen;
+
 
 const styles = StyleSheet.create({
 
@@ -87,7 +86,6 @@ const styles = StyleSheet.create({
     width: '100%',
     flex: 1,
     alignItems: 'center',
-    marginTop: StatusBar.currentHeight || 0,
   },
   main: {
     flex: 1,

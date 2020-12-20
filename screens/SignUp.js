@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
 import { View, StyleSheet, Text, ScrollView, TouchableOpacity } from 'react-native'
+import { AuthContext } from '../context/AuthContext'
+
 import CheckBox from '@react-native-community/checkbox';
 import Title from '../components/Title'
-import Header from '../components/Header'
 import Row from '../components/Row'
 import Button from '../components/Button'
 import Spacer from '../components/Spacer'
@@ -10,8 +11,6 @@ import Spacer from '../components/Spacer'
 import Form from '../components/Form'
 import useForm from '../hooks/useForm'
 import api from '../utility/api'
-import { AuthContext } from '../context/AuthContext'
-import { rootNavigation } from '../utility/navigation.js'
 
 
 const inputs = [
@@ -51,7 +50,7 @@ export default function SignUp({ navigation }) {
                     console.log(errors);
                     setMessageOpen(true)
                 }
-                
+
             } catch (err) {
                 console.warn(err)
                 setError(err)
@@ -65,8 +64,8 @@ export default function SignUp({ navigation }) {
             setError(' Sono stati lascita dei campi vuoti. Inserire tutti i dati per procedere')
             setMessageOpen(true)
         }
-        
-        
+
+
 
     }
 
@@ -75,10 +74,9 @@ export default function SignUp({ navigation }) {
             showsVerticalScrollIndicator={false}
             keyboardShouldPersistTaps="handled">
             <View style={styles.loginSpace}>
-                <Header><Text>Nome App</Text></Header>
                 <Spacer size={10} />
                 {
-                    messageOpen 
+                    messageOpen
                         ? <View style={styles.errorContainer}>
                             <Text style={styles.textError}>ATTENTION! {error}</Text>
                         </View>
@@ -92,7 +90,7 @@ export default function SignUp({ navigation }) {
                         value={toggleCheckBox}
                         onValueChange={(newValue) => setToggleCheckBox(newValue)}
                     />
-                    
+
                     <Text>Ho letto e accetto la normativa della Privacy</Text>
                 </Row>
 

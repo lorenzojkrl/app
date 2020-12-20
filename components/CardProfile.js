@@ -1,11 +1,11 @@
 import React from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, ScrollView, Image } from 'react-native'
-import Header from '../components/Header'
-import Title from '../components/Title'
+
+import { EvilIcons } from '@expo/vector-icons';
+
 import Button from '../components/Button'
 import Spacer from '../components/Spacer'
 
-import { EvilIcons } from '@expo/vector-icons';
 
 const CardProfile = ({ navigation, route }) => {
 	const { created_at, description, game, id, name, updatet_at, user_uuid } = route.params;
@@ -15,7 +15,6 @@ const CardProfile = ({ navigation, route }) => {
 			<ScrollView
 			showsVerticalScrollIndicator={false}
 			keyboardShouldPersistTaps="handled" >
-				<Header><Text>Nome App</Text></Header>
 				<View style={styles.mainContainer}>
 					<TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
 						<EvilIcons name="arrow-left" size={60} color="black" />

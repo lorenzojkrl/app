@@ -1,16 +1,16 @@
 import React, { useContext, useState } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { AuthContext } from '../context/AuthContext'
+
 import { QRCode } from 'react-native-custom-qr-codes-expo';
+import { EvilIcons } from '@expo/vector-icons';
+
 import api from '../utility/api'
 
-import LoggedInHeader from '../components/LoggedInHeader'
-import { AuthContext } from '../context/AuthContext'
-import { EvilIcons } from '@expo/vector-icons';
 import Title from '../components/Title'
 import Button from '../components/Button'
 import Spacer from '../components/Spacer'
-import { ScrollView } from 'react-native-gesture-handler';
-
 
 
 const CardsScreen = () => {
@@ -40,10 +40,11 @@ const CardsScreen = () => {
   }
   return (
     <ScrollView
-    showsVerticalScrollIndicator={false}
-    keyboardShouldPersistTaps="handled">
+      showsVerticalScrollIndicator={false}
+      keyboardShouldPersistTaps="handled">
       <View style={styles.main}>
-        <LoggedInHeader user={user} />
+        <Spacer size={2} />
+
         <Title title={`${user.name + ' ' + user.surname} `} />
         < EvilIcons name="user" size={150} color="black" />
         <Text style={styles.paragraph}>Email: {user.email}</Text>

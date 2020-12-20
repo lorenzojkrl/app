@@ -1,18 +1,17 @@
 import React, { useState, useContext } from "react";
 import { View, StyleSheet, Text, TouchableOpacity, ScrollView, TouchableHighlight } from 'react-native'
+import { AuthContext } from '../context/AuthContext'
+import { rootNavigation } from '../utility/navigation.js'
 
 import Title from '../components/Title'
-import Header from '../components/Header'
 import Spacer from '../components/Spacer'
 import Button from '../components/Button'
 // import Alert2 from '../components/Alert2'
 
-import { AuthContext } from '../context/AuthContext'
-import { rootNavigation } from '../utility/navigation.js'
-import api from '../utility/api'
-
 import useForm from '../hooks/useForm'
 import Form from '../components/Form'
+import api from '../utility/api'
+
 
 const inputs = [
     { label: 'Username', name: 'username_email' },
@@ -66,11 +65,10 @@ export default function Login({ navigation }) {
                 keyboardShouldPersistTaps="handled">
 
                 <View style={styles.loginSpace}>
-                    <Header><Text>Nome App</Text></Header>
                     <Spacer size={10} />
                     {
                         messageOpen
-                            ?<View style={styles.errorContainer}>
+                            ? <View style={styles.errorContainer}>
                                 <Text style={styles.textError}>ATTENTION! {error}</Text>
                             </View>
                             : null

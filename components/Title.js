@@ -9,7 +9,7 @@ const Title = ({ title, color = '#000' }) => {
             fontSize: 24,
             fontWeight: 'bold',
             textTransform: 'uppercase',
-            marginBottom: 10,
+            marginVertical: 10,
             textAlign: 'center'
         }
     }

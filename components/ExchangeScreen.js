@@ -1,20 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
-import {
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
-  StyleSheet,
-  Dimensions,
-} from 'react-native'
+import { Text, View, TextInput, TouchableOpacity, ScrollView, StyleSheet, Dimensions } from 'react-native'
 
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { QRCode } from 'react-native-custom-qr-codes-expo';
 import { EvilIcons } from '@expo/vector-icons';
-import api from '../utility/api'
 import { AuthContext } from '../context/AuthContext'
-import Header from '../components/Header'
+
+import api from '../utility/api'
+
 import Title from '../components/Title'
 import Button from '../components/Button'
 
@@ -90,7 +83,6 @@ const ExchangeScreen = ({ navigation, route }) => {
     <ScrollView
     showsVerticalScrollIndicator={false}
     keyboardShouldPersistTaps="handled">
-      <Header><Text >Nome App</Text></Header>
       <View style={styles.mainContainer}>
         <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
           <EvilIcons name="arrow-left" size={60} color="black" />

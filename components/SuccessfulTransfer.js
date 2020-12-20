@@ -1,21 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Text, View, ScrollView, StyleSheet } from 'react-native';
 
-import { AuthContext } from '../context/AuthContext'
 import { AntDesign } from '@expo/vector-icons';
 
-import LoggedInHeader from '../components/LoggedInHeader'
 import Button from '../components/Button'
 import Spacer from '../components/Spacer'
 
 
 const SuccessfulTransfer = ({ navigation }) => {
-    const { user } = useContext(AuthContext)
     return (
         <ScrollView>
             <View style={styles.main}>
 
-                <LoggedInHeader user={user} />
                 <Spacer size="20" />
                 <Text style={styles.text}>
                     Trasferimento avvenuto con successo
