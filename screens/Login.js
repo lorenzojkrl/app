@@ -64,7 +64,7 @@ export default function Login({ navigation }) {
             <ScrollView>
 
                 <View style={styles.loginSpace}>
-                    <Header><Text>Nome App</Text></Header>
+                    <Header/>
                     <View style={{
                         marginVertical: '5%',
                         height: 100,

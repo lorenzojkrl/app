@@ -8,7 +8,6 @@ import {
   StyleSheet,
   Dimensions,
 } from 'react-native'
-
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { QRCode } from 'react-native-custom-qr-codes-expo';
 import { EvilIcons } from '@expo/vector-icons';
@@ -17,6 +16,8 @@ import { AuthContext } from '../context/AuthContext'
 import Header from '../components/Header'
 import Title from '../components/Title'
 import Button from '../components/Button'
+import LoggedInHeader from './LoggedInHeader'
+
 
 
 const ExchangeScreen = ({ navigation, route }) => {
@@ -27,7 +28,7 @@ const ExchangeScreen = ({ navigation, route }) => {
   const [qrData, setQrData] = useState(''); // qrData = portfolio code
   const [error, setError] = useState(false)
   const [messageOpen, setMessageOpen] = useState(false)
-  const { transferCounter, counter } = useContext(AuthContext)
+  const { transferCounter, counter, user } = useContext(AuthContext)
 
   //Costanti per la dimensione del BarCodeScanner
   const myScreenW = Dimensions.get('window').width;
@@ -88,7 +89,8 @@ const ExchangeScreen = ({ navigation, route }) => {
 
   return (
     <ScrollView>
-      <Header><Text >Nome App</Text></Header>
+      <LoggedInHeader user={user} />
+
       <View style={styles.mainContainer}>
         <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
           <EvilIcons name="arrow-left" size={60} color="black" />
