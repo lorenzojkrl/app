@@ -13,17 +13,15 @@ export default function Header({ children }) {
             alignItems: 'flex-end',
             backgroundColor: 'black',
             width: '100%',
-
-            height: 80,
-            paddingTop: 20,
-            paddingHorizontal: 10,
-            paddingBottom:8,
-
+            height: 70,
+            
         }}>
-            <Text style={{
-                color: 'orange',
-                fontSize: 30,
-                fontWeight: 'bold',
+            <Text
+                style={{
+                    color: 'orange',
+                    fontSize: 30,
+                    fontWeight: 'bold',
+                }}>{children}</Text>
 
             }}>
                 CARDS
