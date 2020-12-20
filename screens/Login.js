@@ -66,33 +66,15 @@ export default function Login({ navigation }) {
                 keyboardShouldPersistTaps="handled">
 
                 <View style={styles.loginSpace}>
-
-                    <Header />
-                    <View style={{
-                        marginVertical: '5%',
-                        height: 100,
-                        width: "100%",
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                     }}>
-                        {
-                            error
-                                ? <View style={styles.errorContainer}>
-                                    <Text style={{}}>ATTENTION! {error}</Text>
-                                </View>
-                                : null
-                        }
-                    </View>
+                    <Header><Text>Nome App</Text></Header>
                     <Spacer size={10} />
-
                     {
                         messageOpen
-                            ? <View style={styles.errorContainer}>
+                            ?<View style={styles.errorContainer}>
                                 <Text style={styles.textError}>ATTENTION! {error}</Text>
                             </View>
                             : null
                     }
-
                     <Title title={'Accedi'}></Title>
                     <Form inputs={inputs} updateInputValue={setFormValue} />
                     <Button

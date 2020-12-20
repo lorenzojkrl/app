@@ -1,9 +1,6 @@
 import React, { useContext } from 'react'
-
 import { View, Text } from 'react-native'
-
 export default function Header({ children }) {
-
     return (
         <View style={{
 
@@ -22,23 +19,6 @@ export default function Header({ children }) {
                     fontSize: 30,
                     fontWeight: 'bold',
                 }}>{children}</Text>
-
-            }}>
-                CARDS
-                </Text>
-
-            <View style={{
-
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-
-              
-
-            }}>
-                {children}
-            </View>
 
         </View>
     )

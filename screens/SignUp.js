@@ -1,11 +1,12 @@
 import React, { useState, useContext } from "react";
-import { View, StyleSheet, Text, ScrollView } from 'react-native'
+import { View, StyleSheet, Text, ScrollView, TouchableOpacity } from 'react-native'
 import CheckBox from '@react-native-community/checkbox';
 import Title from '../components/Title'
 import Header from '../components/Header'
 import Row from '../components/Row'
 import Button from '../components/Button'
 import Spacer from '../components/Spacer'
+
 import Form from '../components/Form'
 import useForm from '../hooks/useForm'
 import api from '../utility/api'
@@ -22,7 +23,8 @@ const inputs = [
     { label: 'Ripeti Password', name: 'password_confirmation', secureTextEntry: true },
 ]
 
-export default function SignUp() {
+
+export default function SignUp({ navigation }) {
     const [toggleCheckBox, setToggleCheckBox] = useState(false)
     const [loading, setLoading] = useState(false)
     const requiredInputs = ['name', 'surname', 'email', 'username', 'password', 'password_confirmation']
@@ -33,32 +35,39 @@ export default function SignUp() {
 
 
     const submitSignup = async () => {
-        try {
-            setLoading(true)
-            const response = await api.post('authentication/signup-action', formData.values)
-            const { result, errors, payload } = response
-            console.log(response)
+        if (formData.valid) {
+            try {
+                setLoading(true)
+                const response = await api.post('authentication/signup-action', formData.values)
+                const { result, errors, payload } = response
+                // console.log(response)
 
-
-            if (result) {
-
-                // manageUserData(payload)
-                // rootNavigation.current.navigate('Greeting')
-                navigation.navigate('Greeting')
-            } else {
-                setError(errors[0].message)
-                console.log(errors);
+                if (result) {
+                    // manageUserData(payload)
+                    // rootNavigation.current.navigate('Greeting')
+                    navigation.navigate('Greeting')
+                } else {
+                    setError(errors[0].message)
+                    console.log(errors);
+                    setMessageOpen(true)
+                }
+                
+            } catch (err) {
+                console.warn(err)
+                setError(err)
                 setMessageOpen(true)
+
+            } finally {
+                setLoading(false)
             }
-
-        } catch (err) {
-            console.warn(err)
-            setError(err)
-            setMessageOpen(true)
-
-        } finally {
-            setLoading(false)
         }
+        else {
+            setError(' Sono stati lascita dei campi vuoti. Inserire tutti i dati per procedere')
+            setMessageOpen(true)
+        }
+        
+        
+
     }
 
     return (
@@ -66,35 +75,39 @@ export default function SignUp() {
             showsVerticalScrollIndicator={false}
             keyboardShouldPersistTaps="handled">
             <View style={styles.loginSpace}>
-                <Header />
+                <Header><Text>Nome App</Text></Header>
                 <Spacer size={10} />
                 {
-                messageOpen
-                    ? <View style={styles.errorContainer}>
-                        <Text style={styles.textError}>ATTENTION! {error}</Text>
-                    </View>
-                    : null
-            }
-            {/* <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} /> */}
-            <Title title={'Registrati'}></Title>
-            <Form inputs={inputs} updateInputValue={setFormValue} />
-            <Row>
-                <CheckBox
-                    value={toggleCheckBox}
-                    onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                    messageOpen 
+                        ? <View style={styles.errorContainer}>
+                            <Text style={styles.textError}>ATTENTION! {error}</Text>
+                        </View>
+                        : null
+                }
+                {/* <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} /> */}
+                <Title title={'Registrati'}></Title>
+                <Form inputs={inputs} updateInputValue={setFormValue} />
+                <Row>
+                    <CheckBox
+                        value={toggleCheckBox}
+                        onValueChange={(newValue) => setToggleCheckBox(newValue)}
+                        
+                    />
+                    
+                    <Text>Ho letto e accetto la normativa della Privacy</Text>
+                </Row>
 
-                />
+                <TouchableOpacity>
+                    <Button
+                        name={'ISCRIVITI'}
+                        disabled={loading}
+                        // disabled={true}
+                        submit={submitSignup}
+                    />
+                </TouchableOpacity>
 
-                <Text>Ho letto e accetto la normativa della Privacy</Text>
-            </Row>
-            <Button
-                name={'ISCRIVITI'}
-                disabled={loading || !formData.valid}
-                // disabled={true}
-                submit={submitSignup}
-            />
             </View>
-        </ScrollView >
+        </ScrollView>
 
     )
 }
