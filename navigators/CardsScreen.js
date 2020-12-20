@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { View, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { View, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator, TextInput } from 'react-native';
 import { AuthContext } from '../context/AuthContext'
 import { useIsFocused } from "@react-navigation/native"
 
@@ -9,10 +9,12 @@ import Button from '../components/Button'
 import CardItem from '../components/CardItem'
 
 
+
 const CardsScreen = ({ navigation }) => {
   const { getCards, cards } = useContext(AuthContext)
   const isFocused = useIsFocused()
   const [timer, setTimer] = useState(false)
+  const [text, setText] = useState()
 
   useEffect(() => {
     if (isFocused) {
@@ -32,6 +34,7 @@ const CardsScreen = ({ navigation }) => {
     } else {
       return (
         <>
+        {console.log(cards.name === "mario")}
           <View style={styles.main}>
             <Title title={`NON CI SONO CARTE`} />
             <Button
@@ -60,6 +63,7 @@ const CardsScreen = ({ navigation }) => {
               }}
               data={cards}
               renderItem={({ item }) => (
+                
                 <TouchableOpacity
                   onPress={() => navigation.navigate('CardProfile', item)}
                 >
