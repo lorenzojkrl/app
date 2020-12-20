@@ -1,5 +1,5 @@
 import React from "react";
-import { View, StyleSheet, Text } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 import Title from '../components/Title'
 import Header from '../components/Header'
 import Button from '../components/Button'
@@ -9,7 +9,7 @@ export default function Greeting({ navigation }) {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Header><Text>Nome App</Text></Header>
+                <Header/>
             </View>
             <View style={styles.loginSpace}>
                 <Title title={'Grazie'} />

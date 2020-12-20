@@ -1,11 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { View, StyleSheet, FlatList, TouchableOpacity, SafeAreaView, StatusBar, ActivityIndicator } from 'react-native';
-import LoggedInHeader from '../components/LoggedInHeader'
+import { View, StyleSheet, FlatList, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { AuthContext } from '../context/AuthContext'
+import { useIsFocused } from "@react-navigation/native"
+
+import Header from '../components/Header'
 import Title from '../components/Title'
 import Button from '../components/Button'
 import CardItem from '../components/CardItem'
-import { useIsFocused } from "@react-navigation/native"
 
 
 const CardsScreen = ({ navigation }) => {
@@ -31,7 +32,7 @@ const CardsScreen = ({ navigation }) => {
     } else {
       return (
         <>
-          <LoggedInHeader user={user} />
+          <Header user={user.name} />
           <View style={styles.main}>
             <Title title={`NON CI SONO CARTE`} />
             <Button
@@ -44,13 +45,11 @@ const CardsScreen = ({ navigation }) => {
       )
     }
 
-
-
   } else {
     return (
       <>
 
-        <LoggedInHeader user={user} />
+        <Header user={user.name} />
         <View style={styles.container}>
 
           <View style={styles.main}>
@@ -78,8 +77,8 @@ const CardsScreen = ({ navigation }) => {
   }
 
 };
-
 export default CardsScreen;
+
 
 const styles = StyleSheet.create({
 

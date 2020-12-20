@@ -1,19 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
-import {
-  Text,
-  View,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
-  StyleSheet,
-  Dimensions,
-} from 'react-native'
+import { Text, View, TextInput, TouchableOpacity, ScrollView, StyleSheet, Dimensions } from 'react-native'
 
 import { BarCodeScanner } from 'expo-barcode-scanner';
 import { QRCode } from 'react-native-custom-qr-codes-expo';
 import { EvilIcons } from '@expo/vector-icons';
-import api from '../utility/api'
 import { AuthContext } from '../context/AuthContext'
+
+import api from '../utility/api'
+
 import Header from '../components/Header'
 import Title from '../components/Title'
 import Button from '../components/Button'
@@ -27,7 +21,7 @@ const ExchangeScreen = ({ navigation, route }) => {
   const [qrData, setQrData] = useState(''); // qrData = portfolio code
   const [error, setError] = useState(false)
   const [messageOpen, setMessageOpen] = useState(false)
-  const { transferCounter, counter } = useContext(AuthContext)
+  const { transferCounter, counter, user } = useContext(AuthContext)
 
   //Costanti per la dimensione del BarCodeScanner
   const myScreenW = Dimensions.get('window').width;
@@ -90,7 +84,7 @@ const ExchangeScreen = ({ navigation, route }) => {
     <ScrollView
     showsVerticalScrollIndicator={false}
     keyboardShouldPersistTaps="handled">
-      <Header><Text >Nome App</Text></Header>
+      <Header user={user.name} />
       <View style={styles.mainContainer}>
         <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
           <EvilIcons name="arrow-left" size={60} color="black" />

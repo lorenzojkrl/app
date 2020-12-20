@@ -1,5 +1,7 @@
 import React, { useState, useContext } from "react";
 import { View, StyleSheet, Text, ScrollView, TouchableOpacity } from 'react-native'
+import { AuthContext } from '../context/AuthContext'
+
 import CheckBox from '@react-native-community/checkbox';
 import Title from '../components/Title'
 import Header from '../components/Header'
@@ -10,8 +12,6 @@ import Spacer from '../components/Spacer'
 import Form from '../components/Form'
 import useForm from '../hooks/useForm'
 import api from '../utility/api'
-import { AuthContext } from '../context/AuthContext'
-import { rootNavigation } from '../utility/navigation.js'
 
 
 const inputs = [
@@ -75,7 +75,7 @@ export default function SignUp({ navigation }) {
             showsVerticalScrollIndicator={false}
             keyboardShouldPersistTaps="handled">
             <View style={styles.loginSpace}>
-                <Header><Text>Nome App</Text></Header>
+                <Header/>
                 <Spacer size={10} />
                 {
                     messageOpen 
