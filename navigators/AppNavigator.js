@@ -18,8 +18,7 @@ export default function AppNavigator() {
 
             }}
         >
-
-
+        
             <AppStack.Screen name="Auth" component={Auth} />
             <AppStack.Screen name="NavigationTab" component={NavigationTab} />
 

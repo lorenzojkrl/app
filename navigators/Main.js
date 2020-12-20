@@ -115,8 +115,6 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-around',
-    // borderWidth: 2,
-    // borderColor: 'orange',
   },
   infoBox: {
     width: 150,
@@ -138,8 +136,6 @@ const styles = StyleSheet.create({
   },
   infoBoxText: {
     flex: 5,
-    // borderWidth: 1,
-    // borderColor: 'black',
   },
   infoBoxTextT: {
     fontSize: 25,

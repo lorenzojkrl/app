@@ -1,7 +1,6 @@
 import React from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Image, Dimensions, } from 'react-native';
+import { Text, View, StyleSheet, Image } from 'react-native';
 import { EvilIcons } from '@expo/vector-icons';
-// import { rootNavigation } from '../utility/navigation.js'
 
 const CardItem = ({ data }) => {
     const { game, name } = data;
@@ -47,8 +46,7 @@ const styles = StyleSheet.create({
         marginVertical: 5,
         borderRadius: 2,
         backgroundColor: 'white'
-        // borderWidth: 2,
-        // borderColor: 'blue',
+
     },
     img: {
         width: 100,
@@ -61,16 +59,12 @@ const styles = StyleSheet.create({
     text: {
         height: 100,
         padding: 10,
-        // borderWidth: 1,
-        // borderColor: 'red',
         justifyContent: 'center',
         paddingLeft: 20,
     },
     btnContainer: {
 
         height: 100,
-        // borderWidth: 1,
-        // borderColor: 'red',
         justifyContent: 'center',
         alignItems: 'center',
         paddingRight: 20,
@@ -84,14 +78,3 @@ const styles = StyleSheet.create({
     }
 })
 
-/*
-<Image
-                    style={{
-                        width: 95,
-                        height: 95,
-                        justifyContent: 'center',
-                        alignItems: 'center'}}
-                    source={{
-
-                    }}/>
-*/

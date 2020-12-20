@@ -1,6 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack'
+
 import CardsScreen from './CardsScreen'
+
 import CardProfile from '../components/CardProfile'
 import ExchangeScreen from '../components/ExchangeScreen'
 import SuccessfulTransfer from '../components/SuccessfulTransfer'
@@ -23,6 +25,7 @@ const CardsStackNav = () => {
             <CardsStack.Screen name="CardProfile" component={CardProfile} />
             <CardsStack.Screen name="ExchangeScreen" component={ExchangeScreen} />
             <CardsStack.Screen name="SuccessfulTransfer" component={SuccessfulTransfer} />
+
         </CardsStack.Navigator>
         </>
     )

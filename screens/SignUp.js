@@ -39,7 +39,7 @@ export default function SignUp({ navigation }) {
                 setLoading(true)
                 const response = await api.post('authentication/signup-action', formData.values)
                 const { result, errors, payload } = response
-                // console.log(response)
+              
 
                 if (result) {
                     // manageUserData(payload)
@@ -87,7 +87,6 @@ export default function SignUp({ navigation }) {
                         </View>
                         : null
                 }
-                {/* <Alert open={messageOpen} message={error} onClose={() => setMessageOpen()} typology={error ? 'danger' : 'success'} /> */}
                 <Title title={'Registrati'}></Title>
                 <Form inputs={inputs} updateInputValue={setFormValue} />
                 <Row>

@@ -11,7 +11,7 @@ export default function Input({
   ...props
 }) {
   const [text, setText] = useState('')
- 
+
 
   useEffect(() => {
     onTextChange(text)
@@ -34,12 +34,9 @@ export default function Input({
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
-    // justifyContent: 'center',
     alignItems: 'center',
-    // paddingBottom: 20,
     width: 400,
-    // backgroundColor: 'pink'
+    
   },
   textInputStyle: {
     width: '70%',

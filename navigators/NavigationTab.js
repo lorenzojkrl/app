@@ -27,11 +27,13 @@ export default function App() {
                     component={Main}
                     options={{ tabBarLabel: '', tabBarIcon: () => (<FontAwesome name="home" size={24} color="white" />), }}
                 />
+
                 <Tab.Screen
                     name="Cards"
                     component={CardsStackNav}
                     options={{ tabBarLabel: '', tabBarIcon: () => (<FontAwesome name="list" size={24} color="white" />), }}
                 />
+                
                 <Tab.Screen
                     name="Profile"
                     component={ProfileScreen}

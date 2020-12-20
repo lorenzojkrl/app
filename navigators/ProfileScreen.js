@@ -23,7 +23,7 @@ const CardsScreen = () => {
     try {
       const response = await api.post('refresh-portfolio-code',)
       const { result, errors, payload } = response
-      // console.log('result is: ', payload)
+
       if (result) {
         setCode(payload)
       }

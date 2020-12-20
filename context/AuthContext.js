@@ -1,9 +1,11 @@
 import React, { createContext, useCallback, useState } from 'react'
-import { setToken } from '../utility/api'
+
 import AsyncStorage from '@react-native-community/async-storage'
-import { rootNavigation } from '../utility/navigation'
 import { CommonActions } from '@react-navigation/native'
+
 import api from '../utility/api'
+import { setToken } from '../utility/api'
+import { rootNavigation } from '../utility/navigation'
 
 export const AuthContext = createContext()
 
@@ -17,7 +19,6 @@ export default function AuthProvider({ children }) {
     const [messageOpen, setMessageOpen] = useState(false)
 
     const manageUserData = useCallback(async (userData) => {
-        // console.log('userData in manageuserData', userData)
         setUser(userData.user)
         setToken(userData.token)
         setTokenProv(userData.token)
@@ -28,13 +29,12 @@ export default function AuthProvider({ children }) {
         try {
             const response = await api.get('get-cards')
             const { result, errors, payload } = response
-            // console.log(result)
+
             if (result) {
-                console.log('payload--------------------', payload.cards)
                 setCards(payload.cards)
-            }else {
-                 setError(errors[0].message)
-                 setMessageOpen(true)
+            } else {
+                setError(errors[0].message)
+                setMessageOpen(true)
             }
         } catch (err) {
             console.warn(err)
@@ -45,7 +45,7 @@ export default function AuthProvider({ children }) {
 
 
     const transferCounter = useCallback(async (cardsMoved) => {
-        // console.log('cardsMoved in COntext: ', cardsMoved)
+
         setCounter(cardsMoved)
 
         // await AsyncStorage.setItem('counter', counter)
