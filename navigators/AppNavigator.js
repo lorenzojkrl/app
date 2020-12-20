@@ -3,7 +3,6 @@ import { createStackNavigator } from '@react-navigation/stack'
 import Auth from "./Auth.js";
 import NavigationTab from './NavigationTab'
 import { AuthContext } from '../context/AuthContext'
-import { StatusBar } from 'expo-status-bar';
 
 const AppStack = createStackNavigator()
 

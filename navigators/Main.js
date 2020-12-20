@@ -1,17 +1,14 @@
 import React, { useState, useEffect, useContext } from "react"
 import { View, StyleSheet, Text, ScrollView } from 'react-native'
 
-import Title from '../components/Title'
-import Button from '../components/Button'
-import api from '../utility/api'
 import { EvilIcons } from '@expo/vector-icons';
 import { AuthContext } from '../context/AuthContext'
 import { Ionicons } from '@expo/vector-icons';
-
-import { StatusBar } from 'expo-status-bar';
-
-import LoggedInHeader from '../components/LoggedInHeader'
 import { useIsFocused } from "@react-navigation/native"
+
+import Title from '../components/Title'
+import Button from '../components/Button'
+import LoggedInHeader from '../components/LoggedInHeader'
 
 // usare createBottommTabNavigator: https://reactnavigation.org/docs/bottom-tab-navigator/
 export default function Main() {
@@ -65,7 +62,6 @@ export default function Main() {
     <ScrollView
       showsVerticalScrollIndicator={false}
       keyboardShouldPersistTaps="handled">
-      <StatusBar style="white" />
       <View style={styles.mainContainer}>
         <LoggedInHeader user={user} />
 

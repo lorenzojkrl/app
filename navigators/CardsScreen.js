@@ -51,7 +51,7 @@ const CardsScreen = ({ navigation }) => {
       <>
 
         <LoggedInHeader user={user} />
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
 
           <View style={styles.main}>
             <Title title={`Le mie Carte`} />
@@ -71,7 +71,7 @@ const CardsScreen = ({ navigation }) => {
               keyExtractor={item => JSON.stringify(item.id)}
             />
           </View>
-        </SafeAreaView>
+        </View>
       </>
     );
 
@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
     width: '100%',
     flex: 1,
     alignItems: 'center',
-    marginTop: StatusBar.currentHeight || 0,
   },
   main: {
     flex: 1,

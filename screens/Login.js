@@ -66,11 +66,13 @@ export default function Login({ navigation }) {
                 keyboardShouldPersistTaps="handled">
 
                 <View style={styles.loginSpace}>
-                    <Header><Text>Nome App</Text></Header>
+                    <Header><Text style={{
+                        color: 'orange'
+                    }}>Nome App</Text></Header>
                     <Spacer size={10} />
                     {
                         messageOpen
-                            ?<View style={styles.errorContainer}>
+                            ? <View style={styles.errorContainer}>
                                 <Text style={styles.textError}>ATTENTION! {error}</Text>
                             </View>
                             : null
