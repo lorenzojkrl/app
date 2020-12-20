@@ -1,7 +1,7 @@
-g
+import React, { useContext } from 'react';
 import { Text, View, ScrollView, StyleSheet } from 'react-native';
+import { AuthContext } from '../context/AuthContext'
 
-g
 import { AntDesign } from '@expo/vector-icons';
 
 import Header from '../components/Header'
