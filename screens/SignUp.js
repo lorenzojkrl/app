@@ -51,6 +51,11 @@ export default function SignUp({ navigation }) {
                     setMessageOpen(true)
                 }
 
+                if(!toggleCheckBox){
+                    setError(' Confermare di aver prevo visione della Normativa sulla Privacy')
+                    setMessageOpen(true)
+                }
+                
             } catch (err) {
                 console.warn(err)
                 setError(err)
@@ -89,7 +94,6 @@ export default function SignUp({ navigation }) {
                     <CheckBox
                         value={toggleCheckBox}
                         onValueChange={(newValue) => setToggleCheckBox(newValue)}
-
                     />
 
                     <Text>Ho letto e accetto la normativa della Privacy</Text>
