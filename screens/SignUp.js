@@ -51,6 +51,11 @@ export default function SignUp({ navigation }) {
                     setMessageOpen(true)
                 }
 
+                if(!toggleCheckBox){
+                    setError(' Confermare di aver prevo visione della Normativa sulla Privacy')
+                    setMessageOpen(true)
+                }
+                
             } catch (err) {
                 console.warn(err)
                 setError(err)
