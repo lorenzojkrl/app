@@ -7,8 +7,6 @@ const CardItem = ({ data }) => {
     const { game, name } = data;
     return (
 
-
-
         <View style={{ width: '100%', flexDirection: 'row', justifyContent: 'space-between', backgroundColor: 'white', marginBottom: 10, borderRadius: 10, overflow: 'hidden' }} >
             <View style={{ flexDirection: 'row' }} >
                 <View style={styles.img}>
@@ -36,7 +34,7 @@ const CardItem = ({ data }) => {
             <View style={styles.btnContainer}>
                 <EvilIcons name="arrow-right" size={40} color="black" />
             </View>
-        </View >
+        </View>
     )
 };
 

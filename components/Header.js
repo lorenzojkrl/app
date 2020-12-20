@@ -24,7 +24,7 @@ export default function Header() {
                     </Text>
                     <View style={styles.childrenView}>
                         <Text style={styles.userText} >
-                            {user.surname}
+                            {user.name} {user.surname}
                         </Text>
                         <EvilIcons name="user" size={50} color="yellow" />
                     </View>
@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     },
     userText: {
         color: 'orange',
-        fontSize: 16,
+        fontSize: 15,
         paddingRight: 7,
     },
 

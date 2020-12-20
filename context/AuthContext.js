@@ -30,7 +30,7 @@ export default function AuthProvider({ children }) {
             const { result, errors, payload } = response
             // console.log(result)
             if (result) {
-                // console.log('payload--------------------', payload.cards)
+                console.log('payload--------------------', payload.cards)
                 setCards(payload.cards)
             }else {
                  setError(errors[0].message)
