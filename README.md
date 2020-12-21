@@ -1,4 +1,5 @@
 React Native App
+
 Includes authentication, data exchange (cards) through QR Code or unique code.
 
 ## API
