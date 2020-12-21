@@ -8,7 +8,7 @@ export function setToken(token) {
 
 class Api {
     async get(url) {
-        // console.log(`${ApiConf.baseUrl}/${url}`)
+       
 
         return (await fetch(`${ApiConf.baseUrl}/${url}`, {
             headers: {
@@ -18,7 +18,7 @@ class Api {
     }
 
     async post(url, params = {}) {
-        // console.log(`${ApiConf.baseUrl}/${url}`)
+        
         return (await fetch(`${ApiConf.baseUrl}/${url}`, {
             headers: {
                 'Content-Type': 'application/json',

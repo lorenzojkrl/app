@@ -10,7 +10,7 @@ export default function useLoader() {
     useEffect(() => {
         const load = async () => {
             const token = await AsyncStorage.getItem('AuthToken');
-            console.log('token in useLoader', token)
+
             if (token) {
                 setToken(token);
                 setTokenProv(token);

@@ -13,8 +13,8 @@ const CardProfile = ({ navigation, route }) => {
 	return (
 		<>
 			<ScrollView
-			showsVerticalScrollIndicator={false}
-			keyboardShouldPersistTaps="handled" >
+				showsVerticalScrollIndicator={false}
+				keyboardShouldPersistTaps="handled" >
 				<View style={styles.mainContainer}>
 					<TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
 						<EvilIcons name="arrow-left" size={60} color="black" />
@@ -100,11 +100,10 @@ const styles = StyleSheet.create({
 	img: {
 		width: 100,
 		height: 100,
-		//backgroundColor: 'black',
+		
 		alignSelf: 'center',
 		marginTop: 15,
-		// borderWidth: 1,
-		// borderColor: 'red',
+	
 	},
 	logoGame: {
 		width: 95,

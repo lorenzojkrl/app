@@ -1,15 +1,15 @@
 import React, { useState, useContext } from "react";
 import { View, StyleSheet, Text, TouchableOpacity, ScrollView, TouchableHighlight } from 'react-native'
 import { AuthContext } from '../context/AuthContext'
-import { rootNavigation } from '../utility/navigation.js'
 
 import Title from '../components/Title'
 import Spacer from '../components/Spacer'
 import Button from '../components/Button'
-// import Alert2 from '../components/Alert2'
 
 import useForm from '../hooks/useForm'
 import Form from '../components/Form'
+
+import { rootNavigation } from '../utility/navigation.js'
 import api from '../utility/api'
 
 
@@ -22,7 +22,6 @@ const inputs = [
 // Lorenzo name: utente_26@mail.com
 // Alessandro name: utente_4@mail.com
 // Alfonso name: utente_7@mail.com
-
 
 // password: Password1!
 

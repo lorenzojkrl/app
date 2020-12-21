@@ -8,11 +8,11 @@ import Title from '../components/Title'
 import Button from '../components/Button'
 import CardItem from '../components/CardItem'
 
-
 const CardsScreen = ({ navigation }) => {
   const { getCards, cards } = useContext(AuthContext)
   const isFocused = useIsFocused()
   const [timer, setTimer] = useState(false)
+  const [text, setText] = useState()
 
   useEffect(() => {
     if (isFocused) {
@@ -47,12 +47,9 @@ const CardsScreen = ({ navigation }) => {
   } else {
     return (
       <>
-
         <View style={styles.container}>
-
           <View style={styles.main}>
             <Spacer size={2} />
-
             <Title title={`Le mie Carte`} />
             <FlatList
               style={{
@@ -60,6 +57,7 @@ const CardsScreen = ({ navigation }) => {
               }}
               data={cards}
               renderItem={({ item }) => (
+
                 <TouchableOpacity
                   onPress={() => navigation.navigate('CardProfile', item)}
                 >
@@ -92,7 +90,6 @@ const styles = StyleSheet.create({
     width: '95%',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    // backgroundColor: 'pink',
   },
   input: {
     height: 40,

@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from 'react-native'
 import spaces from "../config/spaces.js";
+
 export default function Spacer({
     size = 0,
     horizontal

@@ -31,7 +31,6 @@ const ExchangeScreen = ({ navigation, route }) => {
       const { status } = await BarCodeScanner.requestPermissionsAsync();
       setHasPermission(status === 'granted');
     })();
-    // console.log('route.params.params: ', route.params.params)
 
   }, []);
 
@@ -53,13 +52,11 @@ const ExchangeScreen = ({ navigation, route }) => {
       "card_id": id,
       "portfolio_code": qrData
     }
-    // console.log('cardData: ', cardData)
 
     try {
       const response = await api.post('move-card', cardData)
       const { result, errors, payload } = response
-      // console.log('response:', response)
-      // console.log('result -----------', response)
+
 
       if (result) {
         let newCounter = parseInt(counter || '0')
@@ -81,8 +78,8 @@ const ExchangeScreen = ({ navigation, route }) => {
 
   return (
     <ScrollView
-    showsVerticalScrollIndicator={false}
-    keyboardShouldPersistTaps="handled">
+      showsVerticalScrollIndicator={false}
+      keyboardShouldPersistTaps="handled">
       <View style={styles.mainContainer}>
         <TouchableOpacity style={styles.goBack} onPress={() => navigation.goBack()}>
           <EvilIcons name="arrow-left" size={60} color="black" />
@@ -154,9 +151,7 @@ const ExchangeScreen = ({ navigation, route }) => {
           <TouchableOpacity style={{ alignSelf: 'center' }}>
             <Button
               name={'TRASFERISCI'}
-              // submit={() => navigation.navigate('SuccessfulTransfer')}
               submit={() => transferCard()}
-            // submit={() => console.log(qrData)}
             />
           </TouchableOpacity>
         </View>
@@ -178,16 +173,14 @@ const styles = StyleSheet.create({
     height: 100,
     width: '85%',
     justifyContent: 'center',
-    // borderWidth: 1,
-    // borderColor: 'red',
+  
   },
   profileContainer: {
     flex: 1,
     width: '80%',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    // borderWidth: 1,
-    // borderColor: 'red'
+  
   },
   img: {
     width: 250,
